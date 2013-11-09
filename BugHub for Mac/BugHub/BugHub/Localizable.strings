@@ -1,0 +1,52 @@
+/* 
+  Localizable.strings
+  BugHub
+
+  Created by Randy on 12/29/12.
+  Copyright (c) 2012 RCLConcepts. All rights reserved.
+*/
+
+// General buttons
+"Okay" = "Okay";
+"Close" = "Close";
+"Close Window" = "Close Window";
+"Try Again" = "Try Again";
+"Show on GitHub" = "Show on GitHub";
+"Cancel" = "Cancel";
+"Open Windows" = "Open Windows";
+
+
+// General Alerts
+"Download Failed" = "Download Failed";
+"Are You Sure?" = "Are You Sure?";
+
+
+// login
+"Login" = "Login";
+"GitHub Username" = "GitHub Username";
+"GitHub Password" = "GitHub Password";
+
+
+// No issues
+"Repository has issues turned off" = "Repository has issues turned off";
+"This repository doesn't have issues turned on and cannot be viewed in BugHub" = "This repository doesn't have issues turned on and cannot be viewed in BugHub";
+"Unable to download issue from GitHub." = "Unable to download issue from GitHub.";
+
+
+// Issue strings
+"Are you sure you want to open %d windows? Each issue will appear in its own window" = "Are you sure you want to open %d windows? Each issue will appear in its own window";
+"Create Issue" = "Create Issue";
+"Update Issue" = "Update Issue";
+"This issue will not be saved. Are you sure you want to close this window?" = "This issue will not be saved. Are you sure you want to close this window?";
+"Created %@" = "Created %@";
+
+// Issue update/save errors
+"Unable to Update Issue" = "Unable to Update Issue";
+"Unable to Create New Issue" = "Unable to Create New Issue";
+"There was an error communicating with GitHub, the issue could not be updated." = "There was an error communicating with GitHub, the issue could not be updated.";
+"There was an error communicating with GitHub, the issue could not be saved." = "There was an error communicating with GitHub, the issue could not be saved.";
+
+// Repository strings
+"Unable to Load Repository" = "Unable to Load Repository";
+"There was an error trying to load the repository \"%@\" from GitHub." = "There was an error trying to load the repository \"%@\" from GitHub.";
+

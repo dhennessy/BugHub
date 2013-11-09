@@ -1,0 +1,457 @@
+<html>
+    <head>
+        <title>BugHub - Native issue tracking for GitHub</title>
+        <style type="text/css">
+            body
+            {
+                background-color: #faf9f9;
+                font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                padding: 0;
+                margin: 0;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .header
+            {
+                margin: 0;
+                padding: 0;
+                height: 400px;
+                background: url(web2/header_gradient.png);
+                background-repeat:repeat-x;
+                /*background-attachment:fixed;*/
+                background-position:bottom;
+                border-bottom: 1px solid #e1e0e0;
+            }
+
+            .header-content
+            {
+                width: 1000px;
+                margin: 0 auto;
+            }
+
+            .logo
+            {
+                margin-top: 45px;
+            }
+
+            .container
+            {
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+            }
+
+            .content
+            {
+                width: 1000px;
+                margin: 0 auto;
+                padding-top: 30px;
+                width: 1000px;
+                overflow-x: hidden;
+                display: -mox-flex;
+                display: -webkit-box;
+                display: -o-box;
+                /*display: box;*/
+
+                -webkit-box-orient: horizontal;
+
+                -o-box-orient: horizontal;
+
+            }
+
+            #mac-content
+            {
+                position: relative;
+                width: 100%;
+                webkit-transition-property:left, opacity;
+                -webkit-transition-duration: 0.5s, 0.5s;
+                -webkit-transition-timing-function: ease-out, ease-out;
+            }
+
+            #ipad-content
+            {
+                width: 100%;
+                position: relative;
+                -webkit-transition-property:left, opacity;
+                -webkit-transition-duration: 0.5s, 0.5s;
+                -webkit-transition-timing-function: ease-out, ease-out;
+            }
+
+            #iphone-content
+            {
+                display: none;
+                width: 100%;
+                position: relative;
+                -webkit-transition-property:left, opacity;
+                -webkit-transition-duration: 0.75s, 0.5s;
+                -webkit-transition-timing-function: ease-out, ease-out;
+            }
+
+            .left
+            {
+                float: left;
+            }
+
+            .right
+            {
+                float: right;
+            }
+
+            .clear
+            {
+                clear:both;
+            }
+
+            .button-container
+            {
+                margin-top: 55px;
+            }
+
+            .mas-button
+            {
+                width: 178px;
+                height: 71px;
+                background: url(web2/MAS_button.png);
+                display: inline-block;
+                margin-left: 16px;
+            }
+
+            .as-button
+            {
+                width: 178px;
+                height: 71px;
+                background: url(web2/AS_button.png);
+                display: inline-block;
+                margin-left: 16px;
+            }
+
+            .button:active
+            {
+                background-position: 0 1px;
+            }
+
+            .price-container
+            {
+                position: relative;
+                top: -3px;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -o-box;
+                display: box;
+
+                -webkit-box-orient: horizontal;
+                -moz-box-orient: horizontal;
+                -o-box-orient: horizontal;
+                box-orient: horizontal;
+            }
+
+            .price-container div
+            {
+                text-align: center;
+                width: 178px;
+                margin-left: 17px;
+                font-size: 14px;
+                color: #a6a6a6;
+                font-weight: lighter;
+            }
+
+            .feature-point
+            {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                display: -moz-box;
+                display: -webkit-box;
+                display: -o-box;
+                display: box;
+
+                -webkit-box-orient: horizontal;
+                -moz-box-orient: horizontal;
+                -o-box-orient: horizontal;
+                box-orient: horizontal;
+
+                padding-bottom: 20px;
+                border-bottom: 1px dotted #e1e0e0;
+            }
+
+            .mac-screenshot, .ipad-screenshot, .ipad-screenshot-nodevice
+            {
+                width: 450px;
+            }
+
+            .ipad-screenshot-nodevice
+            {
+                border: 6px solid black;
+                border-radius: 3px;
+            }
+
+            .ipad-screenshot, .ipad-screenshot-nodevice
+            {
+                margin-right: 40px;
+            }
+
+            .mac-screenshot
+            {
+                padding-right: 20px;
+            }
+
+            .feature-text
+            {
+                margin-top: 45px;
+                width: 500px;
+            }
+
+            .feature-text h2
+            {
+                color: #45484b;
+            }
+
+            .feature-text p
+            {
+                color: #888888;
+                width: 75%;
+                font-weight: 300;
+                font-size: 15px;
+                text-align: justify;
+            }
+
+            .footer
+            {
+                text-align: center;
+                padding-bottom: 15px;
+            }
+
+            .toggle-buttons
+            {
+                text-align: center;
+                font-weight: 100;
+                font-size: 25px;
+                color: #646b6f;
+            }
+            .toggle-buttons a
+            {
+                font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: normal;
+                font-size: 16px;
+                background: url(web2/button-inactive.png);
+                width: 125px;
+                height: 40px;
+                display: inline-block;
+                color:rgba(82, 82, 82, 0.5);
+                line-height: 40px;
+                text-decoration: none;
+                margin: 5px;
+                text-shadow: 0px 1px rgba(255, 255, 255, 0.5);
+
+            }
+
+            .toggle-buttons a.active
+            {
+                font-weight: bold;
+                color:rgba(82, 82, 82, 1.0);
+                text-shadow: 0px 1px rgba(255, 255, 255, 1.0);
+                background: url(web2/button-active.png);
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            toggleFunction = {};
+            toggleFunction.viewIpad = function(anEvent)
+            {
+                var mac = document.getElementById("mac-content");
+                var ipad = document.getElementById("ipad-content");
+
+                mac.style.left = "-1000px";
+                ipad.style.left = "-1000px";
+
+                var macButton = document.getElementById("mac-toggle-button");
+                var ipadButton = document.getElementById("ipad-toggle-button");
+
+                ipadButton.className = "active";
+                macButton.className = "";
+
+
+                return false;
+            }
+
+            toggleFunction.viewMac = function(anEvent)
+            {
+                var mac = document.getElementById("mac-content");
+                var ipad = document.getElementById("ipad-content");
+
+                currentlyViewing = 0;
+                mac.style.left = "0px";
+                ipad.style.left = "0px";
+
+                var macButton = document.getElementById("mac-toggle-button");
+                var ipadButton = document.getElementById("ipad-toggle-button");
+
+                ipadButton.className = "";
+                macButton.className = "active";
+
+                return false;
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="header-content">
+                    <div class="left">
+                        <img class="logo" src="web2/logo.png" /> <br />
+
+                        <div class="button-container">
+                            <a class="mas-button button" href="https://itunes.apple.com/us/app/bughub-for-github/id633342015?ls=1&mt=12"></a>
+                            <a class="as-button button" href="http://itunes.apple.com/us/app/bughub/id505065500?ls=1&mt=8"></a>
+                        </div>
+                        <div class="price-container">
+                            <div>$4.99<br />Introductory Price</div>
+                            <div>$3.99</div>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <img src="web2/hero.png" />
+                    </div>
+                    <br class="clear" />
+
+                    <div class="toggle-buttons">
+                        <a id="mac-toggle-button" href="#viewMac" onclick="javascript:toggleFunction.viewMac();">Mac App</a>
+                        <a id="ipad-toggle-button" href="#viewIpad" onclick="javascript:toggleFunction.viewIpad();">iPad App</a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="content">
+                <div id="mac-content">
+                    <div class="feature-point">
+                        <div><img class="mac-screenshot" src="web2/mac-screen1.png" /></div>
+                        <div class="feature-text">
+                            <h2>Full Featured</h2>
+                            <p>BugHub is a full featured native Mac client for GitHub issues.</p>
+                            <p>
+                                The slim interface lets you quickly add and remove labels, set milestones, and assignee issues to team
+                                members. Creating new labels and new milestones is also super simple!
+                            </p>
+
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-point">
+                        <div class="feature-text">
+                            <h2>Filter Everything</h2>
+                            <p>BugHub was built for speed. Quickly find the issue you're looking for by using the filtering tools
+                                on the right hand side of the app.
+                            </p>
+
+                            <p>
+                                Because developers love keeping their hands on the keybaord, BugHub also supports keyboard shortcuts for quickly navigating around and mangaging issues.
+                            </p>
+
+                            </p>
+                        </div>
+                        <div><img class="mac-screenshot" src="web2/mac-screen2.png" /></div>
+                    </div>
+
+                    <div class="feature-point">
+                        <div><img class="mac-screenshot" src="web2/mac-screen3.png" /></div>
+                        <div class="feature-text">
+                            <h2>Create New Issues</h2>
+                            <p>BugHub provides a feature rich experience for creating new issues.
+                                You can assign the issue, set a milestone, and add labels all while
+                                creating the issue.
+                            </p>
+                            <p>
+                                If you're not a collaborator on the repository a simplified version
+                                will appear for you.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ipad-content">
+                    <div class="feature-point">
+                        <div><img class="ipad-screenshot" src="web2/ipad-screen1-black.png" /></div>
+                        <div class="feature-text">
+                            <h2>Full Featured</h2>
+                            <p>BugHub for iPad is no watered down version of its Mac counterpart.</p>
+                            <p>
+                                Manage multiple repositories with ease. It's quick and easy to add
+                                new labels and milestones, assigning team members to an issue, and
+                                of course close issues!
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="feature-point">
+                        <div class="feature-text">
+                            <h2>Find Issues Quickly</h2>
+                            <p>
+                                Finding issues with BugHub is fast on your iPad with the very powerful
+                                filter features built in. Filter using labels, assginees, milestones,
+                                or just a regular text search.
+                            </p>
+                            <p>
+                                Searching for issues is instant and live, no more waiting around for the
+                                server to respond to your search request!
+                            </p>
+                        </div>
+                        <div><img class="ipad-screenshot-nodevice" src="web2/ipad-screen2.png" /></div>
+                    </div>
+                    <div class="feature-point">
+                        <div><img class="ipad-screenshot-nodevice" src="web2/ipad-screen3.png" /></div>
+                        <div class="feature-text">
+                            <h2>Create and Comment</h2>
+                            <p>
+                                Quickly create new issues on the fly and comment on existing issues.
+                            </p>
+
+                            <p>
+                                BugHub also supports editing comments, for when you need to add more
+                                information, or if you accidently make a mistake.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer">
+                    Contact me at <a href="http://twitter.com/me1000">@Me1000</a> if you have any questions!
+                    <br/ ><br />
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://bughubapp.com" data-text="BugHub - A native GitHub issues client for Mac and iPad" data-size="large" data-count="none" data-hashtags="BugHub">Tweet</a>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            // ew
+            var loc = window.location.hash;
+
+            if (loc.length > 0)
+            {
+                loc = loc.substr(1);
+                if (typeof toggleFunction[loc] === "function")
+                    toggleFunction[loc]();
+                else
+                    toggleFunction.viewMac();
+            }
+            else
+                toggleFunction.viewMac();
+
+            // but seriously. LOL @ this.
+
+            // google
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2796713-10']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </body>
+</html>
