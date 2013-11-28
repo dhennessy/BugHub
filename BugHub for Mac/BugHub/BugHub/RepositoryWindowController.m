@@ -477,6 +477,7 @@
     }
 
     filteredIssues = [self.repository issues:nil withFilter:filter indexesRemoved:nil];
+    [countField setStringValue:[NSString stringWithFormat:@"%lu", filteredIssues.count]];
     [self.issueList reloadData];
     [self makeSelectedIssueVisible];
 }
@@ -609,6 +610,8 @@
     
     filteredIssues = [self.repository issues:(aFlag ? filteredIssues : nil) withFilter:filter indexesRemoved:indexesToRemove];
     
+    [countField setStringValue:[NSString stringWithFormat:@"%lu", filteredIssues.count]];
+
     if (indexesToRemove)
         [self.issueList removeRowsAtIndexes:indexesToRemove withAnimation:NSTableViewAnimationSlideUp];
     else
@@ -622,6 +625,7 @@
 - (void)_handleIssueChange
 {
     filteredIssues = [self.repository issues:nil withFilter:filter indexesRemoved:nil];
+    [countField setStringValue:[NSString stringWithFormat:@"%lu", filteredIssues.count]];
     [self.issueList reloadData];
     [self makeSelectedIssueVisible];
 }
@@ -667,6 +671,7 @@
 
 - (void)_showRepoLoadingView
 {
+    [countField setStringValue:@""];
     [loadingIssuesView startAnimation:nil];
 }
 
