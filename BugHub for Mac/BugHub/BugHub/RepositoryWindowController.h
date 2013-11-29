@@ -40,6 +40,7 @@
     IBOutlet NSView *noIssuesToDisplayView;
     
     IBOutlet EQSTRScrollView *issueListScrollView;
+    IBOutlet NSTextField *countField;
 }
 
 - (id)initWithRepositoryIdentifier:(NSString *)anIdentifier;
