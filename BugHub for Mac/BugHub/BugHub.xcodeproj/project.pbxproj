@@ -636,10 +636,6 @@
 			isa = PBXGroup;
 			children = (
 				25CA5E231717BFA600A1FCEC /* Big-Icon@2x.icns */,
-				25CA5E251717CDB400A1FCEC /* CoreText.framework */,
-				2582035C170BECE1008FAB5B /* Security.framework */,
-				25254F1C1694127E0019D5F2 /* WebKit.framework */,
-				25AB4DC7168EC50C00A4F5E1 /* QuartzCore.framework */,
 				25C5DF80168A87240001740A /* BugHub */,
 				25C5DF79168A87240001740A /* Frameworks */,
 				25C5DF77168A87240001740A /* Products */,
@@ -657,6 +653,10 @@
 		25C5DF79168A87240001740A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				25CA5E251717CDB400A1FCEC /* CoreText.framework */,
+				2582035C170BECE1008FAB5B /* Security.framework */,
+				25254F1C1694127E0019D5F2 /* WebKit.framework */,
+				25AB4DC7168EC50C00A4F5E1 /* QuartzCore.framework */,
 				25C5DF7A168A87240001740A /* Cocoa.framework */,
 				25C5DF7C168A87240001740A /* Other Frameworks */,
 			);
@@ -806,8 +806,13 @@
 		25C5DF6D168A87240001740A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = RCLConcepts;
+				TargetAttributes = {
+					25C5DF75168A87240001740A = {
+						DevelopmentTeam = 4T3HN73CF5;
+					};
+				};
 			};
 			buildConfigurationList = 25C5DF70168A87240001740A /* Build configuration list for PBXProject "BugHub" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1035,7 +1040,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1067,7 +1071,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -1092,6 +1095,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BugHub/BugHub.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";
@@ -1105,6 +1109,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BugHub/BugHub.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";

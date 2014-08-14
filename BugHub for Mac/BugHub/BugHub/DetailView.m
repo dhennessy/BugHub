@@ -36,7 +36,6 @@
 
 - (void)rebuildMenus;
 - (void)_actuallyDeleteComment:(NSAlert *)anAlert returnCode:(NSInteger)aReturnCode context:(void *)someContext;
-- (void)positionCommentBox;
 @end
 
 @implementation DetailView
@@ -135,7 +134,7 @@
     NSString *isSuperUser = permissions == BHPermissionReadWrite ? @"true" : @"false";
     
     NSString *stringToEval = [NSString stringWithFormat:@"window.scrollTo(0,0); isSuperUser = %@; username = '%@'; setFullIssue(%@);", isSuperUser, [authenticatedUser.login uppercaseString],  [_representedIssue webViewJSON]];
-    NSLog(@"%@", stringToEval);
+//    NSLog(@"%@", stringToEval);
     [_detailWebView stringByEvaluatingJavaScriptFromString:stringToEval];
 
     [self adjustViewHeights];
@@ -317,7 +316,7 @@ decisionListener:(id < WebPolicyDecisionListener >)listener
 
             [listener ignore];
         }
-        else if ([[NSApp delegate] shouldOpenLinksInBugHub] && [[NSApp delegate] attemptToOpenGitHubURL:[url absoluteString]])
+        else if ([(AppDelegate *)[NSApp delegate] shouldOpenLinksInBugHub] && [(AppDelegate *)[NSApp delegate] attemptToOpenGitHubURL:[url absoluteString]])
             [listener ignore];
         else
         {

@@ -843,7 +843,7 @@
     [self.repository removeObserver:self forKeyPath:@"identifier"];
 
     self.repository = nil;
-    [[NSApp delegate] windowControllerDidClose:self];
+    [(AppDelegate *)[NSApp delegate] windowControllerDidClose:self];
 }
 
 - (void)issueDetailWindowControllerWillClose:(id)sender
@@ -1402,7 +1402,7 @@
 #pragma mark resotre windows
 + (void)restoreWindowWithIdentifier:(NSString *)identifier state:(NSCoder *)state completionHandler:(void (^)(NSWindow *, NSError *))completionHandler
 {
-    RepositoryWindowController *controller = [[NSApp delegate] openRepoWindow:identifier];
+    RepositoryWindowController *controller = [(AppDelegate *)[NSApp delegate] openRepoWindow:identifier];
 
     completionHandler(controller.window, nil);
 }

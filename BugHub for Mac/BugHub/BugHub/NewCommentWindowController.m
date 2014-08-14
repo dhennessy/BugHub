@@ -17,7 +17,7 @@
 @property(strong) GHAPIRequest *request;
 - (void)setIsLoading:(BOOL)aFlag;
 - (void)displaySaveError;
-- (NSAttributedString *)stringValueForTitle;
+- (NSString *)stringValueForTitle;
 @end
 
 @implementation NewCommentWindowController
@@ -41,7 +41,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    [self.titleLabel setAttributedStringValue:[self stringValueForTitle]];
+    self.window.title = [self stringValueForTitle];
 }
 
 - (IBAction)submitCommentButtonClicked:(id)sender
@@ -90,29 +90,23 @@
     [self.request sendRequest];
 }
 
-- (NSAttributedString *)stringValueForTitle {
+- (NSString *)stringValueForTitle {
     NSString *commentPrefix = @"Comment on";
     NSString *issueMiddlefix = @"issue";
     NSString *fullString = [NSString stringWithFormat:@"%@ %@ %@ #%ld", commentPrefix, [[self.issue repository] identifier], issueMiddlefix, [self.issue number]];
-    
-    NSDictionary *attributes = @{
-                                 
-                                 };
-    
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:fullString
-                                                                           attributes:attributes];
+    return fullString;
 }
 
 - (void)awakeFromNib
 {
     [self.window setMovableByWindowBackground:YES];
     [self.window setOpaque:NO];
-    [self.window setStyleMask:NSBorderlessWindowMask];
+//    [self.window setStyleMask:NSBorderlessWindowMask];
     NSView *view = [self.window contentView];
     view.wantsLayer = YES;
     [[view layer] setCornerRadius:5.0];
     [[view layer] setMasksToBounds:YES];
-    [self.titleLabel setAttributedStringValue:[self stringValueForTitle]];
+    self.window.title = [self stringValueForTitle];
 }
 
 - (void)windowWillClose:(NSNotification *)notification

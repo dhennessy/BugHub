@@ -64,7 +64,7 @@ GHAPIRequest *__defaultRequestForLogin;
             NSInteger responseCode = [alert runModal];
             
             if (responseCode == 0)
-                [[NSApp delegate] login:nil];
+                [(AppDelegate *)[NSApp delegate] login:nil];
         }
         
     }];
