@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCTClient.h"
 
 @class GHAPIRequest;
 
@@ -36,7 +37,9 @@ extern NSString *BHHitRateLimitNotification;
 @property(strong) NSString *requestMethod;
 
 + (BOOL)initializeClassWithKeychain;
-+ (void)setClassAuthenticatedUser:(NSString *)aUsername password:(NSString *)aPassword;
++ (void)setClassAuthenticatedUser:(NSString *)aUsername token:(NSString *)token;
+//+ (void)setClassAuthenticatedUser:(NSString *)aUsername password:(NSString *)aPassword;
++ (void)setAPIPrefix:(NSString *)apiPrefix;
 + (NSString *)authenticatedUserLogin;
 
 - (NSInteger)pageOfNextRequestFromResponse;
@@ -62,7 +65,7 @@ extern NSString *BHHitRateLimitNotification;
 //automatic requests
 
 // users
-+ (id)requestForAuth:(NSString *)usename pass:(NSString *)pass;
++ (id)requestForAuth:(NSString *)usename token:(NSString *)token;
 + (id)requestForUser:(NSString *)aUsername;
 + (id)requestForUsersOrganizations:(NSString *)aUsername;
 

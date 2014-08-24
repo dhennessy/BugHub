@@ -18,7 +18,7 @@
 - (IBAction)openRepo:(id)sender;
 - (IBAction)closeWindow:(id)sender;
 
-- (void)setDefaultUser:(NSDictionary *)aDict;
+- (void)setDefaultUser:(NSString *)username;
 
 @end
 

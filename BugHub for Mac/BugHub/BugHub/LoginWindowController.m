@@ -65,74 +65,75 @@
 
 - (IBAction)loginClicked:(id)sender
 {
-    NSString *usenameValue = [self.usernameField stringValue];
-    NSString *passwordValue = [self.passwordField stringValue];
-    if (!usenameValue || [usenameValue isEqualToString:@""])
-    {
-        CGRect viewFrame = [self.usernameField frame];
-        CAKeyframeAnimation *animation = [BHAnimations shakeAnimation:viewFrame numberOfShakes:1 durationOfShake:.25];
-        [self.usernameField setAnimations:[NSDictionary dictionaryWithObject:animation forKey:@"frameOrigin"]];
-        [[self.usernameField animator] setFrameOrigin:viewFrame.origin];
-        [self.window makeFirstResponder:self.usernameField];
-        return;
-    }
-    
-    if (!passwordValue || [passwordValue isEqualToString:@""])
-    {
-        CGRect viewFrame = [self.passwordField frame];
-        CAKeyframeAnimation *animation = [BHAnimations shakeAnimation:viewFrame numberOfShakes:1 durationOfShake:.25];
-        [self.passwordField setAnimations:[NSDictionary dictionaryWithObject:animation forKey:@"frameOrigin"]];
-        [[self.passwordField animator] setFrameOrigin:viewFrame.origin];
-        [self.window makeFirstResponder:self.passwordField];
-        return;
-    }
-    
-    [self.usernameField setEnabled:NO];
-    [self.passwordField setEnabled:NO];
-    
-    loginRequest = [GHAPIRequest requestForAuth:[self.usernameField stringValue] pass:[self.passwordField stringValue]];
-
-    __weak id controller = self;
-    
-    [loginRequest setCompletionBlock:^(GHAPIRequest *aRequest){
-        
-        if (aRequest.status == GHAPIRequestStatusComplete)
-        {
-            NSInteger statusCode = [aRequest responseStatusCode];
-            
-            if (statusCode < 200 || statusCode > 299)
-            {
-                // login failed.
-                [controller _animateBackToFields];
-                [controller _shakeWindow];
-                
-                return;
-            }
-
-            NSData *responseData = [aRequest responseData];
-            NSError *error = nil;
-            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
-            
-            if (error)
-                ; // why the hell would there be an error? like srsly.
-            
-            
-            // set the auth string
-            [GHAPIRequest setClassAuthenticatedUser:[responseDict objectForKey:@"login"] password:passwordValue];
-            [controller _animateToRepoChooser:responseDict];
-        }
-        else
-        {
-            NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to login" defaultButton:@"Okay" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Unable to login at this time. Try checking your internet connection."];
-            [controller _animateBackToFields];
-            [[controller window] makeFirstResponder:[controller usernameField]];
-            [alert runModal];
-        }
-    }];
-
-    [self _animateToSpinner];
-    
-    [loginRequest sendRequest];
+    // REPLACED BY OAUTH MECHANISM
+//    NSString *usenameValue = [self.usernameField stringValue];
+//    NSString *passwordValue = [self.passwordField stringValue];
+//    if (!usenameValue || [usenameValue isEqualToString:@""])
+//    {
+//        CGRect viewFrame = [self.usernameField frame];
+//        CAKeyframeAnimation *animation = [BHAnimations shakeAnimation:viewFrame numberOfShakes:1 durationOfShake:.25];
+//        [self.usernameField setAnimations:[NSDictionary dictionaryWithObject:animation forKey:@"frameOrigin"]];
+//        [[self.usernameField animator] setFrameOrigin:viewFrame.origin];
+//        [self.window makeFirstResponder:self.usernameField];
+//        return;
+//    }
+//    
+//    if (!passwordValue || [passwordValue isEqualToString:@""])
+//    {
+//        CGRect viewFrame = [self.passwordField frame];
+//        CAKeyframeAnimation *animation = [BHAnimations shakeAnimation:viewFrame numberOfShakes:1 durationOfShake:.25];
+//        [self.passwordField setAnimations:[NSDictionary dictionaryWithObject:animation forKey:@"frameOrigin"]];
+//        [[self.passwordField animator] setFrameOrigin:viewFrame.origin];
+//        [self.window makeFirstResponder:self.passwordField];
+//        return;
+//    }
+//    
+//    [self.usernameField setEnabled:NO];
+//    [self.passwordField setEnabled:NO];
+//    
+//    loginRequest = [GHAPIRequest requestForAuth:[self.usernameField stringValue] pass:[self.passwordField stringValue]];
+//
+//    __weak id controller = self;
+//    
+//    [loginRequest setCompletionBlock:^(GHAPIRequest *aRequest){
+//        
+//        if (aRequest.status == GHAPIRequestStatusComplete)
+//        {
+//            NSInteger statusCode = [aRequest responseStatusCode];
+//            
+//            if (statusCode < 200 || statusCode > 299)
+//            {
+//                // login failed.
+//                [controller _animateBackToFields];
+//                [controller _shakeWindow];
+//                
+//                return;
+//            }
+//
+//            NSData *responseData = [aRequest responseData];
+//            NSError *error = nil;
+//            NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
+//            
+//            if (error)
+//                ; // why the hell would there be an error? like srsly.
+//            
+//            
+//            // set the auth string
+//            [GHAPIRequest setClassAuthenticatedUser:[responseDict objectForKey:@"login"] password:passwordValue];
+//            [controller _animateToRepoChooser:responseDict];
+//        }
+//        else
+//        {
+//            NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to login" defaultButton:@"Okay" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Unable to login at this time. Try checking your internet connection."];
+//            [controller _animateBackToFields];
+//            [[controller window] makeFirstResponder:[controller usernameField]];
+//            [alert runModal];
+//        }
+//    }];
+//
+//    [self _animateToSpinner];
+//    
+//    [loginRequest sendRequest];
 }
 
 - (void)_animateToSpinner

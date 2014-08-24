@@ -16,7 +16,7 @@
 @interface NewRepoWindowController ()
 {
     NSString *currentlyRequestingUser;
-    NSDictionary *_defaultUser;
+    NSString *_defaultUser;
     GHAPIRequest *_loadRequest;
     GHAPIRequest *_orgLoadRequest;
     NSMutableOrderedSet *_loadedRepos;
@@ -48,7 +48,7 @@
     NSString *authenticatedUser;
     
     if (_defaultUser)
-        authenticatedUser = [_defaultUser objectForKey:@"login"];
+        authenticatedUser = _defaultUser;
     else
          authenticatedUser = [GHAPIRequest authenticatedUserLogin];
 
@@ -82,12 +82,12 @@
     [self.repoListView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
 }
 
-- (void)setDefaultUser:(NSDictionary *)aDict
+- (void)setDefaultUser:(NSString *)username
 {
-    _defaultUser = aDict;
+    _defaultUser = [username copy];
     //NSString *reposAddress = [aDict objectForKey:@"repos_url"];
     //NSString *orgsAddress = [aDict objectForKey:@"organizations_url"];
-    [self loadRepos:[aDict objectForKey:@"login"]];
+    [self loadRepos:username];
 }
 
 - (void)_addNewRepos:(NSArray *)newRepos

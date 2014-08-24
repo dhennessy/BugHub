@@ -46,7 +46,7 @@ typedef enum {
 - (BOOL)attemptToOpenGitHubURL:(NSString *)aPath;
 
 - (IBAction)openRepoChooser:(id)sender;
-
+- (void)closeAllRepoWindows;
 
 - (id)openRepoWindow:(NSString *)aRepoIdentifier;
 - (void)openWindowController:(NSWindowController *)aWindowController;

@@ -1,0 +1,270 @@
+<html>
+	<head>
+		<title>BugHub</title>
+		<style>
+    		body
+    		{
+        		background: #1e272d;
+        		background-image: url("bg.png");
+        		font-family: Helvetica;
+        		padding-top: 60px;
+            }
+
+    		#details
+    		{
+        		padding: 15px;
+        		padding-top: 20px;
+        		
+        		border-radius: 5px;
+        		height: 400px;
+        		width: 350px;
+        		color: #646b6f;
+        		text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+        		text-align: left;
+        		font-size: 15px;
+        		letter-spacing: 0.09em;
+        	}
+        	
+        	#buttonContainer
+        	{
+            	margin-top: 30px;
+            	display: -moz-box;
+            	display: -webkit-box;
+            	
+            	-webkit-box-orient: horizontal;
+            	-moz-box-orient: horizontal;
+        	}
+        	
+        	.buttonImage:active
+        	{
+            	position: relative;
+            	top: 1px;
+        	}
+
+        	#details a
+        	{
+            	color: #666d72;
+            	text-decoration: none;
+            }
+
+            #left
+            {
+                text-align: left;
+            }
+
+            #right
+            {
+                background: url(ipad.png) no-repeat;
+                width: 600px;
+                height: 467px;
+                position: relative;
+                top: 25px;
+                left: 15px;
+            }
+
+
+            #container
+            {
+                display: -moz-box;
+                display: -webkit-box;
+
+                -webkit-box-orient: horizontal;
+                -moz-box-orient: horizontal;
+                max-width: 900px;
+                margin: 0px auto;
+
+            }
+
+            #screenshots
+            {
+                position: relative;
+                width: 485;
+                height: 360px;
+                overflow: hidden;
+                left: 60px;
+                top: 52px;
+
+            }
+            .screenshots
+            {
+                width: 485px;
+                height: 360px;
+                position: absolute;
+
+                -webkit-transition-property:left, opacity;  
+                -webkit-transition-duration: 0.75s, 0.5s;  
+                -webkit-transition-timing-function: ease-out, ease-out;
+                
+                -moz-transition-property:left, opacity;  
+                -moz-transition-duration: 0.75s, 0.5s;  
+                -moz-transition-timing-function: ease-out, ease-out;
+                
+                -o-transition-property:left, opacity;  
+                -o-transition-duration: 0.75s, 0.5s;  
+                -o-transition-timing-function: ease-out, ease-out;
+
+                -ms-transition-property:left, opacity;  
+                -ms-transition-duration: 0.75s, 0.5s;  
+                -ms-transition-timing-function: ease-out, ease-out;
+
+            }
+
+            #screenGlare
+            {
+                background: url("glare.png") no-repeat;
+                width: 197px;
+                height: 363px;
+                position: absolute;;
+                top: 52px;
+                left: 360px;
+                z-index: 9;
+            }
+            
+            #spinner
+            {
+                position:absolute;
+                top: 150px;
+                left: 220px;
+            }
+            
+            #wrapper
+            {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .button
+            {
+                width: 162px;                
+                text-align: center;
+                font-weight:bold;
+                
+            }
+    	</style>
+
+    	<script>
+    	    alert("You\'re viewing a pre-release website. This application has not launched yet.");
+            var names = [
+                            "screen1.png",
+                            "screen10.png",
+                            "screen2.png",
+                            "screen3.png",
+                            "screen4.png",
+                            "screen5.png",
+                            "screen6.png",
+                            "screen7.png",
+                            "screen8.png",
+                            "screen9.png"
+                        ];
+                        
+            var images = [];
+            
+            function doneLoading() {
+
+                var kImageWidth = 485,
+                    kImageHeight = 360;
+
+                var container = document.getElementById('screenshots');
+                container.innerHTML = "";
+
+                for (var i = 0; i < images.length; i++)
+                {
+                    if (i === 0)
+                        images[i].style.opacity = 0;
+                        
+                    images[i].style.left = (i === 0 ? 0 : kImageWidth)+ "px";
+                    images[i].className = "screenshots";
+                    
+                    container.appendChild(images[i]);
+                    
+                    window.setTimeout(function(){
+                        images[0].style.opacity = 1;
+                    }, 0);
+
+                }
+
+                window.setInterval(function(){
+                    var lastImage = images[images.length - 1];
+                    container.removeChild(lastImage);
+                    lastImage.style.left = kImageWidth + "px";
+                    container.appendChild(lastImage);
+
+                    
+                    images[0].style.left = (-kImageWidth) + "px";
+                    images[1].style.left = 0 + "px";
+
+                    images.push(images.shift());
+
+                }, 5000);
+            }
+            
+            
+            
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2796713-10']);
+            _gaq.push(['_trackPageview']);
+            
+            (function() {
+              var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+              ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+              var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+	</head>
+	<body>
+	    <div id="wrapper">
+    	<div id="container">
+        	<div id="left">
+            	<img alt="BugHub Github issue tracking" src="icon.png" style="position:relative; top:15px;"/> <img src="app-name-text.png" /><h1 style="display:none;">BugHub</h1>
+        		<div id="details">
+        		   <span style="font-weight:bold;">Manage your issues on Github with style!</span> BugHub is a full featured issue tracking client that works with Github on your iPad.
+
+        		       <h2>Some features:</h2>
+        		       <ul>
+            		       <li>Manage multiple repositories</li>
+            		       <li>Create new issues</li>
+            		       <li>Comment on issues</li>
+        		           <li>Assign issues to team members</li>
+        		           <li>Add and remove labels</li>
+        		           <li>Set milestones</li>
+        		           <li>Close and reopen issues</li>
+            		   </ul>
+
+        		    <div id="buttonContainer">
+            		    <div class="button">
+            		        <a href="http://itunes.apple.com/us/app/bughub/id505065500?ls=1&mt=8"><img class="buttonImage" src="AppStore.png" target="_blank"/></a>
+            		        
+            		        $1.99 USD
+            		    </div>
+            		    <div class="button" style="margin-left:10px;"><a href="http://twitter.com/home?status=BugHub%3A%20Github%20issue%20tracker%20on%20the%20iPad.%20http%3A%2F%2Fbughubapp.com" target="_blank" ><img class="buttonImage" src="Tweet.png" /></a></div>
+                    </div>
+        	    </div>
+        	</div>
+        	<div id="right">
+        	    <div id="screenGlare"></div>
+            	<div id="screenshots">
+                	<img src="spinner.gif" id="spinner" />
+                </div>
+        	</div>
+    	</div>
+        </div>
+
+    	<script>
+    	    window.setTimeout(function(){
+                for (var i = 0; i < names.length; i++)
+                {
+                    (function(i){
+                        var img = new Image();
+                        img.onload = function() {
+                            images.push(img);
+                            
+                            if (images.length === names.length)
+                                doneLoading();
+                        };
+                        img.src = names[i]; 
+                    })(i);               
+                }
+            }, 2000);            
+        </script>
+	</body>
+</html>

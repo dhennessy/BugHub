@@ -1,0 +1,29 @@
+PODS:
+  - AFNetworking (1.3.4)
+  - ISO8601DateFormatter (0.7)
+  - Mantle (1.3.1):
+    - Mantle/extobjc
+  - Mantle/extobjc (1.3.1)
+  - OctoKit (0.5):
+    - AFNetworking (~> 1.3.3)
+    - ISO8601DateFormatter (~> 0.7.0)
+    - Mantle (~> 1.3.1)
+    - ReactiveCocoa (~> 2.2.2)
+  - ReactiveCocoa (2.2.4):
+    - ReactiveCocoa/Core
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/Core (2.2.4):
+    - ReactiveCocoa/no-arc
+  - ReactiveCocoa/no-arc (2.2.4)
+
+DEPENDENCIES:
+  - OctoKit
+
+SPEC CHECKSUMS:
+  AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
+  ISO8601DateFormatter: 59731cd880cf87e71b4fa95f0d6b713dcbc4cbce
+  Mantle: a59fdca5cfedd43a0707f0418b3df4b043a1425d
+  OctoKit: 82db3234475890f00f4050a3887f7b155fe71a6e
+  ReactiveCocoa: 2af0e10b1cb17a060898992474eaf51d12f34ae9
+
+COCOAPODS: 0.33.1

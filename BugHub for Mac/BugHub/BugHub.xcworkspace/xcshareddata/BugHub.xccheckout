@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5A803B6E-894C-4B8E-919F-3E72378B80AE</string>
+	<key>IDESourceControlProjectName</key>
+	<string>BugHub</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9EA8FB0E98BC037F6316676D133F71B5A61C3406</key>
+		<string>dev:BugHub.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>BugHub for Mac/BugHub/BugHub.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9EA8FB0E98BC037F6316676D133F71B5A61C3406</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>dev:BugHub.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9EA8FB0E98BC037F6316676D133F71B5A61C3406</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9EA8FB0E98BC037F6316676D133F71B5A61C3406</string>
+			<key>IDESourceControlWCCName</key>
+			<string>BugHub</string>
+		</dict>
+	</array>
+</dict>
+</plist>

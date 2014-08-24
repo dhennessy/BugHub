@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "LoginWindowController.h"
+//#import "LoginWindowController.h"
+#import "WebLoginWindowController.h"
 #import "RepositoryWindowController.h"
 #import "BHWindowControllerIdentifier.h"
 #import "BHRequestQueue.h"
@@ -16,13 +17,15 @@
 #import "GHAPIRequest.h"
 #import "GHUtils.h"
 #import "INAppStoreWindow.h"
+#import "OCTClient.h"
 
 @class IdentifierWindowController;
 
 @interface AppDelegate ()
 {
     NSMutableSet *openWindowControllers;
-    LoginWindowController *loginController;
+//    LoginWindowController *loginController;
+    WebLoginWindowController *loginController;
     
     GHAPIRequest *_apiStatusCheckConnection;
     
@@ -42,6 +45,7 @@
 
     if (self)
     {
+        [OCTClient setClientID:@"8e376e2335495e3a8e83" clientSecret:@"c2578cebd0ecc5efae69ed1f111e2d37e7b865a8"];
         _requestQueue = [[BHRequestQueue alloc] init];
         openWindowControllers = [NSMutableSet setWithCapacity:1];
         self.apiStatus = GHAPIStatusGood;
@@ -133,7 +137,7 @@
 - (IBAction)login:(id)sender
 {
     if (!loginController)
-        loginController = [[LoginWindowController alloc] initWithWindowNibName:@"LoginWindowController"];
+        loginController = [[WebLoginWindowController alloc] initWithWindowNibName:@"WebLoginWindowController"];
 
     [loginController.window center];
     [loginController.window makeKeyAndOrderFront:nil];
@@ -141,8 +145,10 @@
 
 - (IBAction)logout:(id)sender
 {
-    [GHAPIRequest setClassAuthenticatedUser:nil password:nil];
+    [GHAPIRequest setClassAuthenticatedUser:nil token:nil];
     [self login:nil];
+    [prefPane close];
+    [self closeAllRepoWindows];
 }
 
 - (IBAction)quickOpen:(id)sender
@@ -277,7 +283,11 @@
     //http://stackoverflow.com/questions/49510/how-do-you-set-your-cocoa-application-as-the-default-web-browser
     // Get the URL
     NSString *urlStr = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
-    [self openBugHubSchemeURL:urlStr];
+    if ([urlStr hasPrefix:@"bhgithub://oauth"]) {
+        [OCTClient completeSignInWithCallbackURL:[NSURL URLWithString:urlStr]];
+    } else {
+        [self openBugHubSchemeURL:urlStr];
+    }
 }
 
 - (void)checkAPIStatus
@@ -344,8 +354,8 @@
 {
     NewRepoWindowController *wc = [[NewRepoWindowController alloc] initWithWindowNibName:@"NewRepoWindowController"];
 
-    if ([sender isKindOfClass:[NSDictionary class]])
-        [wc setDefaultUser:sender];
+//    if ([sender isKindOfClass:[NSString class]])
+//        [wc setDefaultUser:sender];
     
     [self openWindowController:wc];
 }
@@ -427,6 +437,14 @@
     [self openWindowController:controller];
     
     return controller;
+}
+
+- (void)closeAllRepoWindows {
+    for (NSWindowController *aController in openWindowControllers) {
+        if ([aController isKindOfClass:[RepositoryWindowController class]]) {
+            [aController.window close];
+        }
+    }
 }
 
 - (IBAction)showPrefsWindow:(id)sender

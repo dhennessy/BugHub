@@ -169,6 +169,9 @@
 		25D4886B170D260100B516D1 /* refresh_arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 25D4886A170D260100B516D1 /* refresh_arrow@2x.png */; };
 		25D4886E170D302200B516D1 /* BHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4886D170D302200B516D1 /* BHEvent.m */; };
 		25EE89F716CE0BF100AAA75A /* FilterBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EE89F616CE0BF100AAA75A /* FilterBarButton.m */; };
+		922B474019A8B43A00411C2A /* WebLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922B473E19A8B43A00411C2A /* WebLoginWindowController.m */; };
+		922B474119A8B43A00411C2A /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */; };
+		AAD78AE110B04C6B95E16263 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4C2D5C6A6D4C5180EB449B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -404,6 +407,11 @@
 		25D4886D170D302200B516D1 /* BHEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BHEvent.m; sourceTree = "<group>"; };
 		25EE89F516CE0BF100AAA75A /* FilterBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBarButton.h; sourceTree = "<group>"; };
 		25EE89F616CE0BF100AAA75A /* FilterBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBarButton.m; sourceTree = "<group>"; };
+		3A4C2D5C6A6D4C5180EB449B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		922B473D19A8B43A00411C2A /* WebLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebLoginWindowController.h; sourceTree = "<group>"; };
+		922B473E19A8B43A00411C2A /* WebLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebLoginWindowController.m; sourceTree = "<group>"; };
+		922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLoginWindowController.xib; sourceTree = "<group>"; };
+		C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +424,7 @@
 				25254F1D1694127E0019D5F2 /* WebKit.framework in Frameworks */,
 				25AB4DC8168EC50D00A4F5E1 /* QuartzCore.framework in Frameworks */,
 				25C5DF7B168A87240001740A /* Cocoa.framework in Frameworks */,
+				AAD78AE110B04C6B95E16263 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +617,9 @@
 				25AB4DBF168E1B1200A4F5E1 /* LoginWindowController.xib */,
 				25AB4D93168D74E400A4F5E1 /* INAppStoreWindow.h */,
 				25AB4D94168D74E400A4F5E1 /* INAppStoreWindow.m */,
+				922B473D19A8B43A00411C2A /* WebLoginWindowController.h */,
+				922B473E19A8B43A00411C2A /* WebLoginWindowController.m */,
+				922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -639,6 +651,7 @@
 				25C5DF80168A87240001740A /* BugHub */,
 				25C5DF79168A87240001740A /* Frameworks */,
 				25C5DF77168A87240001740A /* Products */,
+				C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -659,6 +672,7 @@
 				25AB4DC7168EC50C00A4F5E1 /* QuartzCore.framework */,
 				25C5DF7A168A87240001740A /* Cocoa.framework */,
 				25C5DF7C168A87240001740A /* Other Frameworks */,
+				3A4C2D5C6A6D4C5180EB449B /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -787,9 +801,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 25C5DF94168A87250001740A /* Build configuration list for PBXNativeTarget "BugHub" */;
 			buildPhases = (
+				F18A5BD734A84D7CAA38994F /* Check Pods Manifest.lock */,
 				25C5DF72168A87240001740A /* Sources */,
 				25C5DF73168A87240001740A /* Frameworks */,
 				25C5DF74168A87240001740A /* Resources */,
+				C5D0DA278FD74F95A66245F5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -887,6 +903,7 @@
 				25D0155E16EEE98800600A78 /* add_issue_highlighted.png in Resources */,
 				25D0156816EFC80000600A78 /* NewMilestoneWindowController.xib in Resources */,
 				2501038316F006A6004A6FB1 /* list_icon.png in Resources */,
+				922B474119A8B43A00411C2A /* WebLoginWindowController.xib in Resources */,
 				2501038816F01082004A6FB1 /* NewCommentWindowController.xib in Resources */,
 				250733E016FD6429001B1D92 /* repo_icon_small.png in Resources */,
 				250733E116FD6429001B1D92 /* repo_icon_small@2x.png in Resources */,
@@ -937,6 +954,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C5D0DA278FD74F95A66245F5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F18A5BD734A84D7CAA38994F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		25C5DF72168A87240001740A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -954,6 +1004,7 @@
 				25AB4D79168C05E700A4F5E1 /* BHRepository.m in Sources */,
 				25AB4D7D168C0A1A00A4F5E1 /* BHIssueFilter.m in Sources */,
 				25AB4D81168C11E300A4F5E1 /* BHIssue.m in Sources */,
+				922B474019A8B43A00411C2A /* WebLoginWindowController.m in Sources */,
 				25AB4D85168C135300A4F5E1 /* BHMilestone.m in Sources */,
 				25AB4D89168C137300A4F5E1 /* BHLabel.m in Sources */,
 				25AB4D8D168C379F00A4F5E1 /* NSColor+hex.m in Sources */,
@@ -1047,7 +1098,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1080,7 +1131,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1097,6 +1148,7 @@
 		};
 		25C5DF95168A87250001740A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BugHub/BugHub.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -1111,6 +1163,7 @@
 		};
 		25C5DF96168A87250001740A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BugHub/BugHub.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
