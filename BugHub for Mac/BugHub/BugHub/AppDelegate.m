@@ -105,6 +105,9 @@
             [self openRepoChooser:nil];
     }
 
+    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"e03657115605ec034e073870b13120b5"];
+    [[BITHockeyManager sharedHockeyManager] startManager];
+    
     [self checkAPIStatus];
     [NSTimer scheduledTimerWithTimeInterval:15 * 60 target:self selector:@selector(checkAPIStatus) userInfo:nil repeats:YES];
 }
@@ -353,7 +356,6 @@
 - (IBAction)openRepoChooser:(id)sender
 {
     NewRepoWindowController *wc = [[NewRepoWindowController alloc] initWithWindowNibName:@"NewRepoWindowController"];
-
 //    if ([sender isKindOfClass:[NSString class]])
 //        [wc setDefaultUser:sender];
     

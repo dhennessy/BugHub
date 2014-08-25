@@ -1,5 +1,7 @@
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/HockeySDK-Mac/HockeySDK-Mac"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/ISO8601DateFormatter" "${PODS_ROOT}/Headers/Mantle" "${PODS_ROOT}/Headers/OctoKit" "${PODS_ROOT}/Headers/ReactiveCocoa" "${PODS_ROOT}/Headers/ReactiveCocoa/ReactiveCocoa"
-OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AFNetworking" -isystem "${PODS_ROOT}/Headers/ISO8601DateFormatter" -isystem "${PODS_ROOT}/Headers/Mantle" -isystem "${PODS_ROOT}/Headers/OctoKit" -isystem "${PODS_ROOT}/Headers/ReactiveCocoa" -isystem "${PODS_ROOT}/Headers/ReactiveCocoa/ReactiveCocoa"
-OTHER_LDFLAGS = -ObjC -framework CoreServices -framework Foundation -framework Security -framework SystemConfiguration
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/AFNetworking" "${PODS_ROOT}/Headers/HockeySDK-Mac" "${PODS_ROOT}/Headers/ISO8601DateFormatter" "${PODS_ROOT}/Headers/Mantle" "${PODS_ROOT}/Headers/OctoKit" "${PODS_ROOT}/Headers/ReactiveCocoa" "${PODS_ROOT}/Headers/ReactiveCocoa/ReactiveCocoa"
+LD_RUNPATH_SEARCH_PATHS = @loader_path/../Frameworks
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers" -isystem "${PODS_ROOT}/Headers/AFNetworking" -isystem "${PODS_ROOT}/Headers/HockeySDK-Mac" -isystem "${PODS_ROOT}/Headers/ISO8601DateFormatter" -isystem "${PODS_ROOT}/Headers/Mantle" -isystem "${PODS_ROOT}/Headers/OctoKit" -isystem "${PODS_ROOT}/Headers/ReactiveCocoa" -isystem "${PODS_ROOT}/Headers/ReactiveCocoa/ReactiveCocoa"
+OTHER_LDFLAGS = -ObjC -framework CoreServices -framework Foundation -framework HockeySDK -framework Security -framework SystemConfiguration
 PODS_ROOT = ${SRCROOT}/Pods

@@ -1,3 +1,4 @@
 platform :osx, '10.7'
 
+pod 'HockeySDK-Mac'
 pod 'OctoKit'
