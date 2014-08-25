@@ -16,6 +16,7 @@
 static NSString *GHAPIRequestAuthenticatedUserLogin = nil;
 static NSString *GBAPIRequestAuthenticationHeader = nil;
 static NSString *GHAPIRequestPrefix = @"https://api.github.com";
+static NSString * const GHAPIServerEnterpriseAPIEndpointPathComponent = @"api/v3";
 
 static NSString *const BHServiceName = @"com.peerassembly.BugHub";
 static NSString *const BHUserDefaultsKey = @"BHUserDefaultsKey";
@@ -43,7 +44,7 @@ GHAPIRequest *__defaultRequestForLogin;
 
 + (void)setAPIPrefix:(NSString *)apiPrefix {
     if (apiPrefix) {
-        GHAPIRequestPrefix = [apiPrefix copy];
+        GHAPIRequestPrefix = [apiPrefix stringByAppendingPathComponent:GHAPIServerEnterpriseAPIEndpointPathComponent];
     } else {
         GHAPIRequestPrefix = @"https://api.github.com";
     }
@@ -225,35 +226,6 @@ GHAPIRequest *__defaultRequestForLogin;
     [[NSNotificationCenter defaultCenter] postNotificationName:BHLoginChangedNotification object:nil];
 }
 
-+ (void)setClassAuthenticatedUser:(NSString *)aUsername password:(NSString *)aPassword
-{
-    if (!aUsername || !aPassword)
-    {
-        NSError *error = nil;
-        [STKeychain deleteItemForUsername:GHAPIRequestAuthenticatedUserLogin
-                           andServiceName:BHServiceName
-                                    error:&error];
-
-        GBAPIRequestAuthenticationHeader = nil;
-        GHAPIRequestAuthenticatedUserLogin = nil;
-        [[NSNotificationCenter defaultCenter] postNotificationName:BHLoginChangedNotification object:nil];
-        return;
-    }
-
-    NSString *anAuthHeader = [NSString stringWithFormat:@"Basic %@",[Base64 encodeString:[NSString stringWithFormat:@"%@:%@", aUsername, aPassword]]];
-    GBAPIRequestAuthenticationHeader = anAuthHeader;
-    GHAPIRequestAuthenticatedUserLogin = [aUsername copy];
-    
-    [[NSUserDefaults standardUserDefaults] setObject:aUsername forKey:BHUserDefaultsKey];
-    
-    NSError *error = nil;
-    BOOL wasSuccessful = [STKeychain storeUsername:aUsername andPassword:aPassword forServiceName:BHServiceName updateExisting:YES error:&error];
-    if (!wasSuccessful)
-        NSLog(@"Unsuccessful save attempt.");
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:BHLoginChangedNotification object:nil];
-}
-
 + (NSString *)authenticatedUserLogin
 {
     return [GHAPIRequestAuthenticatedUserLogin copy];
@@ -376,26 +348,11 @@ GHAPIRequest *__defaultRequestForLogin;
         [self setClassAuthenticatedUser:aUsername token:token];
         AddAuthHeader(request);
         [request setRequestURL:[NSString stringWithFormat:@"%@/user", GHAPIRequestPrefix]];
-        [self setClassAuthenticatedUser:nil password:nil];
+        [self setClassAuthenticatedUser:nil token:nil];
     }
     
     return request;
 }
-
-//+ (id)requestForAuth:(NSString *)aUsername pass:(NSString *)aPass
-//{
-//    id request = [[self alloc] init];
-//    
-//    if (request)
-//    {
-//        [self setClassAuthenticatedUser:aUsername password:aPass];
-//        AddAuthHeader(request);
-//        [request setRequestURL:[NSString stringWithFormat:@"%@/user", GHAPIRequestPrefix]];
-//        [self setClassAuthenticatedUser:nil password:nil];
-//    }
-//    
-//    return request;
-//}
 
 + (id)requestForUser:(NSString *)aUsername
 {
