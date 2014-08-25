@@ -39,7 +39,7 @@
 }
 
 - (IBAction)enterPressedInEnterpriseURL:(id)sender {
-    if (_enterpriseLoginButton.enabled) {
+    if ([_enterpriseLoginButton isEnabled]) {
         [self loginEnterpriseClicked:_enterpriseLoginButton];
     }
 }
