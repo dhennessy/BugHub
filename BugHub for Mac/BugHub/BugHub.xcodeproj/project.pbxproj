@@ -171,6 +171,7 @@
 		25EE89F716CE0BF100AAA75A /* FilterBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EE89F616CE0BF100AAA75A /* FilterBarButton.m */; };
 		922B474019A8B43A00411C2A /* WebLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922B473E19A8B43A00411C2A /* WebLoginWindowController.m */; };
 		922B474119A8B43A00411C2A /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */; };
+		92DE78D319AB7E9200112325 /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */; };
 		AAD78AE110B04C6B95E16263 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4C2D5C6A6D4C5180EB449B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -411,6 +412,7 @@
 		922B473D19A8B43A00411C2A /* WebLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebLoginWindowController.h; sourceTree = "<group>"; };
 		922B473E19A8B43A00411C2A /* WebLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebLoginWindowController.m; sourceTree = "<group>"; };
 		922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLoginWindowController.xib; sourceTree = "<group>"; };
+		92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLoginWindowController.xib; sourceTree = "<group>"; };
 		C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -619,6 +621,7 @@
 				25AB4D94168D74E400A4F5E1 /* INAppStoreWindow.m */,
 				922B473D19A8B43A00411C2A /* WebLoginWindowController.h */,
 				922B473E19A8B43A00411C2A /* WebLoginWindowController.m */,
+				92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */,
 				922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */,
 			);
 			name = Views;
@@ -892,6 +895,7 @@
 				252D4B9216E63D7100828CD8 /* milestone-icon@2x.png in Resources */,
 				25D0154016E7265A00600A78 /* Big-Icon.png in Resources */,
 				25D0154216E728D800600A78 /* Semi-Dark-Texture.png in Resources */,
+				92DE78D319AB7E9200112325 /* WebLoginWindowController.xib in Resources */,
 				25D0154416E72BF600600A78 /* BugHub_Light_name.png in Resources */,
 				25D0154616E7383400600A78 /* background.png in Resources */,
 				25D0154816EDABB100600A78 /* linnen.png in Resources */,
