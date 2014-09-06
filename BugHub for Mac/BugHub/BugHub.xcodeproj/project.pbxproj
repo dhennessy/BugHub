@@ -168,7 +168,6 @@
 		25D4886E170D302200B516D1 /* BHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4886D170D302200B516D1 /* BHEvent.m */; };
 		25EE89F716CE0BF100AAA75A /* FilterBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EE89F616CE0BF100AAA75A /* FilterBarButton.m */; };
 		922B474019A8B43A00411C2A /* WebLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922B473E19A8B43A00411C2A /* WebLoginWindowController.m */; };
-		922B474119A8B43A00411C2A /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */; };
 		92D4623E19BB2B9500512E8F /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D4623C19BB2B9500512E8F /* LoginWindowController.m */; };
 		92D4623F19BB2B9500512E8F /* LoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D4623D19BB2B9500512E8F /* LoginWindowController.xib */; };
 		92DE78D319AB7E9200112325 /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */; };
@@ -408,7 +407,6 @@
 		3A4C2D5C6A6D4C5180EB449B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		922B473D19A8B43A00411C2A /* WebLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebLoginWindowController.h; sourceTree = "<group>"; };
 		922B473E19A8B43A00411C2A /* WebLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebLoginWindowController.m; sourceTree = "<group>"; };
-		922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLoginWindowController.xib; sourceTree = "<group>"; };
 		92D4623B19BB2B9500512E8F /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
 		92D4623C19BB2B9500512E8F /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
 		92D4623D19BB2B9500512E8F /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindowController.xib; sourceTree = "<group>"; };
@@ -622,7 +620,6 @@
 				922B473D19A8B43A00411C2A /* WebLoginWindowController.h */,
 				922B473E19A8B43A00411C2A /* WebLoginWindowController.m */,
 				92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */,
-				922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -906,7 +903,6 @@
 				25D0155E16EEE98800600A78 /* add_issue_highlighted.png in Resources */,
 				25D0156816EFC80000600A78 /* NewMilestoneWindowController.xib in Resources */,
 				2501038316F006A6004A6FB1 /* list_icon.png in Resources */,
-				922B474119A8B43A00411C2A /* WebLoginWindowController.xib in Resources */,
 				2501038816F01082004A6FB1 /* NewCommentWindowController.xib in Resources */,
 				250733E016FD6429001B1D92 /* repo_icon_small.png in Resources */,
 				250733E116FD6429001B1D92 /* repo_icon_small@2x.png in Resources */,
