@@ -1,30 +1,19 @@
 //
-//  LoginViewController.h
-//  BugHub
+//  LoginWindowController.h
+//  GitHubAuth
 //
-//  Created by Randy on 12/28/12.
-//  Copyright (c) 2012 RCLConcepts. All rights reserved.
+//  Created by Denis Hennessy on 30/08/2014.
+//  Copyright (c) 2014 Peer Assembly Ltd. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
+#import "GHAPIRequest.h"
 
-@interface LoginWindowController : NSWindowController<NSWindowDelegate>
-{
-    IBOutlet NSView *fieldsContainerView;
-    IBOutlet NSProgressIndicator *spinnerView;
-    
-    IBOutlet NSImageView *nameIV;
-    IBOutlet NSImageView *iconVIew;
-    
-    IBOutlet NSButton *goButton;
-    
-    IBOutlet NSImageView *fieldsUnderlay;
+@interface LoginWindowController : NSWindowController {
+    NSString *_oldEnterpriseURL;
+    NSArray *_codeTextFields;
+    BOOL _oneTimePasswordVisible;
+    GHAPIRequest *loginRequest;
 }
-
-@property(strong) IBOutlet NSTextField *usernameField;
-@property(strong) IBOutlet NSSecureTextField *passwordField;
-
-- (IBAction)cancelButtonPushed:(id)sender;
-- (IBAction)loginClicked:(id)sender;
 
 @end

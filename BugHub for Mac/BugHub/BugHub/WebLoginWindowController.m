@@ -30,7 +30,7 @@
 - (IBAction)loginEnterpriseClicked:(id)sender {
     [[NSUserDefaults standardUserDefaults] setObject:_urlTextField.stringValue forKey:@"APIPrefix"];
     NSURL *url = [NSURL URLWithString:_urlTextField.stringValue];
-    if ([url.scheme isEqualToString:@"https"]) {
+    if ([url.scheme isEqualToString:@"http"] || [url.scheme isEqualToString:@"https"]) {
         [self startWebLoginWithURL:url];
     } else {
         NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"Unsupported URL format", nil) defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:NSLocalizedString(@"GitHub Enterprise login URLs should start with 'http://' or 'https://'", nil)];

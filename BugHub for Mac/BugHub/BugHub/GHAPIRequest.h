@@ -38,7 +38,9 @@ extern NSString *BHHitRateLimitNotification;
 
 + (BOOL)initializeClassWithKeychain;
 + (void)setClassAuthenticatedUser:(NSString *)aUsername token:(NSString *)token;
++ (void)setClassAuthenticatedUser:(NSString *)aUsername password:(NSString *)aPassword;
 + (void)setAPIPrefix:(NSString *)apiPrefix;
++ (void)setUsesOAuth:(BOOL)usesOAuth;
 + (NSString *)authenticatedUserLogin;
 
 - (NSInteger)pageOfNextRequestFromResponse;
@@ -65,6 +67,7 @@ extern NSString *BHHitRateLimitNotification;
 
 // users
 + (id)requestForAuth:(NSString *)usename token:(NSString *)token;
++ (id)requestForAuth:(NSString *)usename password:(NSString *)password;
 + (id)requestForUser:(NSString *)aUsername;
 + (id)requestForUsersOrganizations:(NSString *)aUsername;
 

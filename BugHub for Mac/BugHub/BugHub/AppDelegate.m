@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-//#import "LoginWindowController.h"
-#import "WebLoginWindowController.h"
+#import "LoginWindowController.h"
+//#import "WebLoginWindowController.h"
 #import "RepositoryWindowController.h"
 #import "BHWindowControllerIdentifier.h"
 #import "BHRequestQueue.h"
@@ -24,8 +24,8 @@
 @interface AppDelegate ()
 {
     NSMutableSet *openWindowControllers;
-//    LoginWindowController *loginController;
-    WebLoginWindowController *loginController;
+    LoginWindowController *loginController;
+//    WebLoginWindowController *loginController;
     
     GHAPIRequest *_apiStatusCheckConnection;
     
@@ -139,8 +139,7 @@
 
 - (IBAction)login:(id)sender
 {
-    if (!loginController)
-        loginController = [[WebLoginWindowController alloc] initWithWindowNibName:@"WebLoginWindowController"];
+    loginController = [[LoginWindowController alloc] initWithWindowNibName:@"LoginWindowController"];
 
     [loginController.window center];
     [loginController.window makeKeyAndOrderFront:nil];

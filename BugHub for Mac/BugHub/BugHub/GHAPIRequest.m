@@ -17,6 +17,7 @@ static NSString *GHAPIRequestAuthenticatedUserLogin = nil;
 static NSString *GBAPIRequestAuthenticationHeader = nil;
 static NSString *GHAPIRequestPrefix = @"https://api.github.com";
 static NSString * const GHAPIServerEnterpriseAPIEndpointPathComponent = @"api/v3";
+static BOOL GHAPIUsesOAuth = NO;
 
 static NSString *const BHServiceName = @"com.peerassembly.BugHub";
 static NSString *const BHUserDefaultsKey = @"BHUserDefaultsKey";
@@ -50,8 +51,14 @@ GHAPIRequest *__defaultRequestForLogin;
     }
 }
 
++ (void)setUsesOAuth:(BOOL)usesOAuth {
+    GHAPIUsesOAuth = usesOAuth;
+    [[NSUserDefaults standardUserDefaults] setBool:usesOAuth forKey:@"UsesOAuth"];
+}
+
 + (BOOL)initializeClassWithKeychain
 {
+    GHAPIUsesOAuth = [[NSUserDefaults standardUserDefaults] boolForKey:@"UsesOAuth"];
     [self setAPIPrefix:[[NSUserDefaults standardUserDefaults] stringForKey:@"APIPrefix"]];
     NSError *error = nil;
     NSString *aUsername = [[NSUserDefaults standardUserDefaults] objectForKey:BHUserDefaultsKey];
@@ -63,7 +70,11 @@ GHAPIRequest *__defaultRequestForLogin;
     if (!password)
         return NO;
     
-    __defaultRequestForLogin = [self requestForAuth:aUsername token:password];
+    if (GHAPIUsesOAuth) {
+        __defaultRequestForLogin = [self requestForAuth:aUsername token:password];
+    } else {
+        __defaultRequestForLogin = [self requestForAuth:aUsername password:password];
+    }
     [__defaultRequestForLogin setCompletionBlock:^(GHAPIRequest *aRequest){
         NSInteger statusCode = [aRequest responseStatusCode];
         
@@ -81,8 +92,11 @@ GHAPIRequest *__defaultRequestForLogin;
     [__defaultRequestForLogin sendRequest];
     
     // for the moment, let's assume it was successful.
-    [self setClassAuthenticatedUser:aUsername token:password];
-//    [self setClassAuthenticatedUser:aUsername password:password];
+    if (GHAPIUsesOAuth) {
+        [self setClassAuthenticatedUser:aUsername token:password];
+    } else {
+        [self setClassAuthenticatedUser:aUsername password:password];
+    }
     
     return YES;
 }
@@ -197,6 +211,35 @@ GHAPIRequest *__defaultRequestForLogin;
         lastPageLocation = [lastPageLocation substringToIndex:locationOfPossibleAmp];
 
     return [lastPageLocation integerValue];
+}
+
++ (void)setClassAuthenticatedUser:(NSString *)aUsername password:(NSString *)aPassword
+{
+    if (!aUsername || !aPassword)
+    {
+        NSError *error = nil;
+        [STKeychain deleteItemForUsername:GHAPIRequestAuthenticatedUserLogin
+                           andServiceName:BHServiceName
+                                    error:&error];
+        
+        GBAPIRequestAuthenticationHeader = nil;
+        GHAPIRequestAuthenticatedUserLogin = nil;
+        [[NSNotificationCenter defaultCenter] postNotificationName:BHLoginChangedNotification object:nil];
+        return;
+    }
+    
+    NSString *anAuthHeader = [NSString stringWithFormat:@"Basic %@",[Base64 encodeString:[NSString stringWithFormat:@"%@:%@", aUsername, aPassword]]];
+    GBAPIRequestAuthenticationHeader = anAuthHeader;
+    GHAPIRequestAuthenticatedUserLogin = [aUsername copy];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:aUsername forKey:BHUserDefaultsKey];
+    
+    NSError *error = nil;
+    BOOL wasSuccessful = [STKeychain storeUsername:aUsername andPassword:aPassword forServiceName:BHServiceName updateExisting:YES error:&error];
+    if (!wasSuccessful)
+        NSLog(@"Unsuccessful save attempt.");
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:BHLoginChangedNotification object:nil];
 }
 
 + (void)setClassAuthenticatedUser:(NSString *)username token:(NSString *)token {
@@ -349,6 +392,21 @@ GHAPIRequest *__defaultRequestForLogin;
         AddAuthHeader(request);
         [request setRequestURL:[NSString stringWithFormat:@"%@/user", GHAPIRequestPrefix]];
         [self setClassAuthenticatedUser:nil token:nil];
+    }
+    
+    return request;
+}
+
++ (id)requestForAuth:(NSString *)aUsername password:(NSString *)password
+{
+    id request = [[self alloc] init];
+    
+    if (request)
+    {
+        [self setClassAuthenticatedUser:aUsername password:password];
+        AddAuthHeader(request);
+        [request setRequestURL:[NSString stringWithFormat:@"%@/user", GHAPIRequestPrefix]];
+        [self setClassAuthenticatedUser:nil password:nil];
     }
     
     return request;

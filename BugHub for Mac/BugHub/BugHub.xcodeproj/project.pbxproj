@@ -102,8 +102,6 @@
 		25AB4D8D168C379F00A4F5E1 /* NSColor+hex.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AB4D8B168C379F00A4F5E1 /* NSColor+hex.m */; };
 		25AB4D91168C3C1600A4F5E1 /* GHUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AB4D8F168C3C1600A4F5E1 /* GHUtils.m */; };
 		25AB4D96168D74E400A4F5E1 /* INAppStoreWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AB4D94168D74E400A4F5E1 /* INAppStoreWindow.m */; };
-		25AB4DC1168E1B1300A4F5E1 /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AB4DBE168E1B1200A4F5E1 /* LoginWindowController.m */; };
-		25AB4DC2168E1B1300A4F5E1 /* LoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25AB4DBF168E1B1200A4F5E1 /* LoginWindowController.xib */; };
 		25AB4DC6168EBC3600A4F5E1 /* RepositoryWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AB4DC4168EBC3600A4F5E1 /* RepositoryWindowController.m */; };
 		25AB4DC8168EC50D00A4F5E1 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25AB4DC7168EC50C00A4F5E1 /* QuartzCore.framework */; };
 		25AB4DCC168ECEFD00A4F5E1 /* BHAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = 25AB4DCA168ECEFD00A4F5E1 /* BHAnimations.m */; };
@@ -171,6 +169,8 @@
 		25EE89F716CE0BF100AAA75A /* FilterBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EE89F616CE0BF100AAA75A /* FilterBarButton.m */; };
 		922B474019A8B43A00411C2A /* WebLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922B473E19A8B43A00411C2A /* WebLoginWindowController.m */; };
 		922B474119A8B43A00411C2A /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */; };
+		92D4623E19BB2B9500512E8F /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D4623C19BB2B9500512E8F /* LoginWindowController.m */; };
+		92D4623F19BB2B9500512E8F /* LoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D4623D19BB2B9500512E8F /* LoginWindowController.xib */; };
 		92DE78D319AB7E9200112325 /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */; };
 		AAD78AE110B04C6B95E16263 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4C2D5C6A6D4C5180EB449B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -314,9 +314,6 @@
 		25AB4D8F168C3C1600A4F5E1 /* GHUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUtils.m; sourceTree = "<group>"; };
 		25AB4D93168D74E400A4F5E1 /* INAppStoreWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = INAppStoreWindow.h; sourceTree = "<group>"; };
 		25AB4D94168D74E400A4F5E1 /* INAppStoreWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = INAppStoreWindow.m; sourceTree = "<group>"; };
-		25AB4DBD168E1B1200A4F5E1 /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = LoginWindowController.h; sourceTree = "<group>"; };
-		25AB4DBE168E1B1200A4F5E1 /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
-		25AB4DBF168E1B1200A4F5E1 /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindowController.xib; sourceTree = "<group>"; };
 		25AB4DC3168EBC3600A4F5E1 /* RepositoryWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = RepositoryWindowController.h; sourceTree = "<group>"; };
 		25AB4DC4168EBC3600A4F5E1 /* RepositoryWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RepositoryWindowController.m; sourceTree = "<group>"; };
 		25AB4DC7168EC50C00A4F5E1 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -412,6 +409,9 @@
 		922B473D19A8B43A00411C2A /* WebLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebLoginWindowController.h; sourceTree = "<group>"; };
 		922B473E19A8B43A00411C2A /* WebLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebLoginWindowController.m; sourceTree = "<group>"; };
 		922B473F19A8B43A00411C2A /* WebLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLoginWindowController.xib; sourceTree = "<group>"; };
+		92D4623B19BB2B9500512E8F /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
+		92D4623C19BB2B9500512E8F /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
+		92D4623D19BB2B9500512E8F /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindowController.xib; sourceTree = "<group>"; };
 		92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLoginWindowController.xib; sourceTree = "<group>"; };
 		C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -614,11 +614,11 @@
 				25254F0C169382E30019D5F2 /* IssueDetailViewController.h */,
 				25254F0D169382E30019D5F2 /* IssueDetailViewController.m */,
 				25254F0E169382E30019D5F2 /* IssueDetailViewController.xib */,
-				25AB4DBD168E1B1200A4F5E1 /* LoginWindowController.h */,
-				25AB4DBE168E1B1200A4F5E1 /* LoginWindowController.m */,
-				25AB4DBF168E1B1200A4F5E1 /* LoginWindowController.xib */,
 				25AB4D93168D74E400A4F5E1 /* INAppStoreWindow.h */,
 				25AB4D94168D74E400A4F5E1 /* INAppStoreWindow.m */,
+				92D4623B19BB2B9500512E8F /* LoginWindowController.h */,
+				92D4623C19BB2B9500512E8F /* LoginWindowController.m */,
+				92D4623D19BB2B9500512E8F /* LoginWindowController.xib */,
 				922B473D19A8B43A00411C2A /* WebLoginWindowController.h */,
 				922B473E19A8B43A00411C2A /* WebLoginWindowController.m */,
 				92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */,
@@ -858,7 +858,6 @@
 				25C5DF85168A87240001740A /* InfoPlist.strings in Resources */,
 				25C5DF8B168A87250001740A /* Credits.rtf in Resources */,
 				25C5DF91168A87250001740A /* MainMenu.xib in Resources */,
-				25AB4DC2168E1B1300A4F5E1 /* LoginWindowController.xib in Resources */,
 				25C6F327168FA23000F8B757 /* Localizable.strings in Resources */,
 				25C6F329168FF9D800F8B757 /* RepositoryWindowController.xib in Resources */,
 				250EB4211690CAD40050EF0D /* IssueListTableCellView.xib in Resources */,
@@ -925,6 +924,7 @@
 				25159F041707F2E90080EA93 /* no_selected_issue.png in Resources */,
 				25159F051707F2E90080EA93 /* no_selected_issue@2x.png in Resources */,
 				25159F0A1708160A0080EA93 /* lighter_linnen.png in Resources */,
+				92D4623F19BB2B9500512E8F /* LoginWindowController.xib in Resources */,
 				25D48869170D25AE00B516D1 /* refresh_arrow.png in Resources */,
 				25D4886B170D260100B516D1 /* refresh_arrow@2x.png in Resources */,
 				2508A8F1171217DD001B4D82 /* milestone-icon-highlighted.png in Resources */,
@@ -1014,7 +1014,6 @@
 				25AB4D8D168C379F00A4F5E1 /* NSColor+hex.m in Sources */,
 				25AB4D91168C3C1600A4F5E1 /* GHUtils.m in Sources */,
 				25AB4D96168D74E400A4F5E1 /* INAppStoreWindow.m in Sources */,
-				25AB4DC1168E1B1300A4F5E1 /* LoginWindowController.m in Sources */,
 				25AB4DC6168EBC3600A4F5E1 /* RepositoryWindowController.m in Sources */,
 				25AB4DCC168ECEFD00A4F5E1 /* BHAnimations.m in Sources */,
 				25C6F31C168F8C9900F8B757 /* NSNull+Additions.m in Sources */,
@@ -1030,6 +1029,7 @@
 				25904F6E1697FE3800D2EA2D /* NSAttributedString+GitHubMarkdownAdditions.m in Sources */,
 				25904F741699258500D2EA2D /* NewIssueWindowController.m in Sources */,
 				25904FD616A7AD7D00D2EA2D /* NewRepoWindowController.m in Sources */,
+				92D4623E19BB2B9500512E8F /* LoginWindowController.m in Sources */,
 				25C471A716B10B370078395A /* RLView.m in Sources */,
 				25C471AD16B11B070078395A /* LabelsFilterViewController.m in Sources */,
 				25C471B316B241610078395A /* LabelTableViewCellView.m in Sources */,
@@ -1102,7 +1102,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1135,7 +1135,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = YES;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
