@@ -7,11 +7,11 @@
 //
 
 #import "LoginWindowController.h"
-#import "OCTServer.h"
-#import "OCTUser.h"
-#import "OCTClient.h"
-#import "RACScheduler.h"
-#import "RACSignal.h"
+#import <OctoKit/OCTClient.h>
+#import <OctoKit/OCTServer.h>
+#import <OctoKit/OCTUser.h>
+#import <ReactiveCocoa/RACScheduler.h>
+#import <ReactiveCocoa/RACSignal.h>
 #import "AppDelegate.h"
 
 @interface LoginWindowController ()
@@ -49,7 +49,7 @@
                         _code3TextField, _code4TextField, _code5TextField
                         ];
     [_service setSelectionFrom:0 to:0 anchor:0 highlight:NO];
-    _urlTextField.stringValue = @"http://github.com";
+    _urlTextField.stringValue = @"https://github.com";
     _errorLabel.stringValue = @"";
     _oldEnterpriseURL = @"";
     [self enableUserInteraction:YES];
@@ -107,7 +107,10 @@
         RACSignal *request = [OCTClient signInAsUser:user
                                             password:password
                                      oneTimePassword:oneTimePassword
-                                              scopes:OCTClientAuthorizationScopesRepository];
+                                              scopes:OCTClientAuthorizationScopesRepository
+                                                note:@"BugHub"
+                                             noteURL:nil
+                                         fingerprint:nil];
         [request subscribeNext:^(OCTClient *authenticatedClient) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (_oneTimePasswordVisible) {
@@ -157,7 +160,7 @@
         _oldEnterpriseURL = [_urlTextField.stringValue copy];
         [_usernameTextField becomeFirstResponder];
         _urlTextField.enabled = NO;
-        _urlTextField.stringValue = @"http://github.com";
+        _urlTextField.stringValue = @"https://github.com";
     } else {
         _urlLabel.enabled = YES;
         _urlTextField.enabled = YES;

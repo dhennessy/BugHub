@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "OCTClient.h"
+#import <OctoKit/OCTClient.h>
 
 @class GHAPIRequest;
 

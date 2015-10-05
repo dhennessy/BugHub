@@ -1,0 +1,6 @@
+framework module OctoKit {
+  umbrella header "OctoKit.h"
+
+  export *
+  module * { export * }
+}

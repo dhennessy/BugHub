@@ -17,7 +17,7 @@
 #import "GHAPIRequest.h"
 #import "GHUtils.h"
 #import "INAppStoreWindow.h"
-#import "OCTClient.h"
+#import <OctoKit/OCTClient.h>
 
 @class IdentifierWindowController;
 

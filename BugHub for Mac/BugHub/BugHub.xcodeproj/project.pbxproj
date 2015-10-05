@@ -168,11 +168,39 @@
 		25D4886E170D302200B516D1 /* BHEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 25D4886D170D302200B516D1 /* BHEvent.m */; };
 		25EE89F716CE0BF100AAA75A /* FilterBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 25EE89F616CE0BF100AAA75A /* FilterBarButton.m */; };
 		922B474019A8B43A00411C2A /* WebLoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 922B473E19A8B43A00411C2A /* WebLoginWindowController.m */; };
+		92468D221BC2D144005F5CE7 /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D211BC2D144005F5CE7 /* AFNetworking.framework */; };
+		92468D231BC2D144005F5CE7 /* AFNetworking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D211BC2D144005F5CE7 /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92468D2A1BC2D150005F5CE7 /* ISO8601DateFormatter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D251BC2D150005F5CE7 /* ISO8601DateFormatter.framework */; };
+		92468D2B1BC2D150005F5CE7 /* ISO8601DateFormatter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D251BC2D150005F5CE7 /* ISO8601DateFormatter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92468D2C1BC2D150005F5CE7 /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D261BC2D150005F5CE7 /* Mantle.framework */; };
+		92468D2D1BC2D150005F5CE7 /* Mantle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D261BC2D150005F5CE7 /* Mantle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92468D2E1BC2D150005F5CE7 /* OctoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D281BC2D150005F5CE7 /* OctoKit.framework */; };
+		92468D2F1BC2D150005F5CE7 /* OctoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D281BC2D150005F5CE7 /* OctoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		92468D301BC2D150005F5CE7 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D291BC2D150005F5CE7 /* ReactiveCocoa.framework */; };
+		92468D311BC2D150005F5CE7 /* ReactiveCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 92468D291BC2D150005F5CE7 /* ReactiveCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		92D4623E19BB2B9500512E8F /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92D4623C19BB2B9500512E8F /* LoginWindowController.m */; };
 		92D4623F19BB2B9500512E8F /* LoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92D4623D19BB2B9500512E8F /* LoginWindowController.xib */; };
 		92DE78D319AB7E9200112325 /* WebLoginWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */; };
 		AAD78AE110B04C6B95E16263 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4C2D5C6A6D4C5180EB449B /* libPods.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		92468D241BC2D144005F5CE7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				92468D2B1BC2D150005F5CE7 /* ISO8601DateFormatter.framework in Embed Frameworks */,
+				92468D231BC2D144005F5CE7 /* AFNetworking.framework in Embed Frameworks */,
+				92468D2F1BC2D150005F5CE7 /* OctoKit.framework in Embed Frameworks */,
+				92468D2D1BC2D150005F5CE7 /* Mantle.framework in Embed Frameworks */,
+				92468D311BC2D150005F5CE7 /* ReactiveCocoa.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2501038216F006A6004A6FB1 /* list_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list_icon.png; sourceTree = "<group>"; };
@@ -405,13 +433,19 @@
 		25EE89F516CE0BF100AAA75A /* FilterBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterBarButton.h; sourceTree = "<group>"; };
 		25EE89F616CE0BF100AAA75A /* FilterBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBarButton.m; sourceTree = "<group>"; };
 		3A4C2D5C6A6D4C5180EB449B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A1E6B6E64EC4309D5038468 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		922B473D19A8B43A00411C2A /* WebLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebLoginWindowController.h; sourceTree = "<group>"; };
 		922B473E19A8B43A00411C2A /* WebLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebLoginWindowController.m; sourceTree = "<group>"; };
+		92468D211BC2D144005F5CE7 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/Mac/AFNetworking.framework; sourceTree = "<group>"; };
+		92468D251BC2D150005F5CE7 /* ISO8601DateFormatter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ISO8601DateFormatter.framework; path = Carthage/Build/Mac/ISO8601DateFormatter.framework; sourceTree = "<group>"; };
+		92468D261BC2D150005F5CE7 /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = Carthage/Build/Mac/Mantle.framework; sourceTree = "<group>"; };
+		92468D281BC2D150005F5CE7 /* OctoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OctoKit.framework; path = Carthage/Build/Mac/OctoKit.framework; sourceTree = "<group>"; };
+		92468D291BC2D150005F5CE7 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
 		92D4623B19BB2B9500512E8F /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
 		92D4623C19BB2B9500512E8F /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
 		92D4623D19BB2B9500512E8F /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindowController.xib; sourceTree = "<group>"; };
 		92DE78D219AB7E9200112325 /* WebLoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebLoginWindowController.xib; sourceTree = "<group>"; };
-		C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		CCF2EB3FC91E369F5BF58C9F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -421,9 +455,14 @@
 			files = (
 				25CA5E261717CDB400A1FCEC /* CoreText.framework in Frameworks */,
 				2582035D170BECE1008FAB5B /* Security.framework in Frameworks */,
+				92468D221BC2D144005F5CE7 /* AFNetworking.framework in Frameworks */,
+				92468D301BC2D150005F5CE7 /* ReactiveCocoa.framework in Frameworks */,
 				25254F1D1694127E0019D5F2 /* WebKit.framework in Frameworks */,
 				25AB4DC8168EC50D00A4F5E1 /* QuartzCore.framework in Frameworks */,
+				92468D2C1BC2D150005F5CE7 /* Mantle.framework in Frameworks */,
+				92468D2E1BC2D150005F5CE7 /* OctoKit.framework in Frameworks */,
 				25C5DF7B168A87240001740A /* Cocoa.framework in Frameworks */,
+				92468D2A1BC2D150005F5CE7 /* ISO8601DateFormatter.framework in Frameworks */,
 				AAD78AE110B04C6B95E16263 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +470,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		063953F990FE77F11015CB99 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A1E6B6E64EC4309D5038468 /* Pods.debug.xcconfig */,
+				CCF2EB3FC91E369F5BF58C9F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2542B80416B3D41700153C68 /* Filtering */ = {
 			isa = PBXGroup;
 			children = (
@@ -647,11 +695,16 @@
 		25C5DF6B168A87240001740A = {
 			isa = PBXGroup;
 			children = (
+				92468D251BC2D150005F5CE7 /* ISO8601DateFormatter.framework */,
+				92468D261BC2D150005F5CE7 /* Mantle.framework */,
+				92468D281BC2D150005F5CE7 /* OctoKit.framework */,
+				92468D291BC2D150005F5CE7 /* ReactiveCocoa.framework */,
+				92468D211BC2D144005F5CE7 /* AFNetworking.framework */,
 				25CA5E231717BFA600A1FCEC /* Big-Icon@2x.icns */,
 				25C5DF80168A87240001740A /* BugHub */,
 				25C5DF79168A87240001740A /* Frameworks */,
 				25C5DF77168A87240001740A /* Products */,
-				C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */,
+				063953F990FE77F11015CB99 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -806,6 +859,7 @@
 				25C5DF73168A87240001740A /* Frameworks */,
 				25C5DF74168A87240001740A /* Resources */,
 				C5D0DA278FD74F95A66245F5 /* Copy Pods Resources */,
+				92468D241BC2D144005F5CE7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -967,7 +1021,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F18A5BD734A84D7CAA38994F /* Check Pods Manifest.lock */ = {
@@ -1148,14 +1202,19 @@
 		};
 		25C5DF95168A87250001740A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */;
+			baseConfigurationReference = 4A1E6B6E64EC4309D5038468 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BugHub/BugHub.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";
 				INFOPLIST_FILE = "BugHub/BugHub-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1163,14 +1222,19 @@
 		};
 		25C5DF96168A87250001740A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C36B8D2DB28A4B21ADEA5D6F /* Pods.xcconfig */;
+			baseConfigurationReference = CCF2EB3FC91E369F5BF58C9F /* Pods.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = BugHub/BugHub.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";
 				INFOPLIST_FILE = "BugHub/BugHub-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

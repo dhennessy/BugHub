@@ -1,0 +1,7 @@
+FRAMEWORK_SEARCH_PATHS = "$(PODS_ROOT)/HockeySDK-Mac/HockeySDK-Mac"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/HockeySDK-Mac" "${PODS_ROOT}/Headers/Public/HockeySDK-Mac/HockeySDK"
+LD_RUNPATH_SEARCH_PATHS = @executable_path/../Frameworks
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/HockeySDK-Mac" -isystem "${PODS_ROOT}/Headers/Public/HockeySDK-Mac/HockeySDK"
+OTHER_LDFLAGS = $(inherited) -ObjC -framework "HockeySDK"
+PODS_ROOT = ${SRCROOT}/Pods

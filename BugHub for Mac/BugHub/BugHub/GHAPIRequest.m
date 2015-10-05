@@ -81,10 +81,10 @@ GHAPIRequest *__defaultRequestForLogin;
         if (statusCode < 200 || statusCode > 299)
         {
             // login failed.
-            NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to Authenticate" defaultButton:@"Login" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"BugHub was unable to authenticate your login creditials with GitHub."];
+            NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to Authenticate" defaultButton:@"Login" alternateButton:@"Cancel" otherButton:nil informativeTextWithFormat:@"BugHub was unable to authenticate your login credentials with GitHub."];
             NSInteger responseCode = [alert runModal];
             
-            if (responseCode == 0)
+            if (responseCode == 1)
                 [(AppDelegate *)[NSApp delegate] login:nil];
         }
         

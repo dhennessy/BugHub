@@ -35,18 +35,7 @@
  
  */
 
-@interface BITHockeyBaseManager : NSObject {
-@private
-  NSDateFormatter *_rfc3339Formatter;
-  
-  NSString *_appIdentifier;
-  
-  NSString *_userID;
-  NSString *_userName;
-  NSString *_userEmail;
-  
-  NSString *_serverURL;
-}
+@interface BITHockeyBaseManager : NSObject
 
 ///-----------------------------------------------------------------------------
 /// @name Modules

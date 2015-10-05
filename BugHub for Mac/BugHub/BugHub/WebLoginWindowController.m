@@ -7,10 +7,10 @@
 //
 
 #import "WebLoginWindowController.h"
-#import "OCTClient.h"
-#import "OCTServer.h"
-#import "OCTUser.h"
-#import "RACSignal.h"
+#import <OctoKit/OCTClient.h>
+#import <OctoKit/OCTServer.h>
+#import <OctoKit/OCTUser.h>
+#import <ReactiveCocoa/RACSignal.h>
 #import "AppDelegate.h"
 #import "GHAPIRequest.h"
 
