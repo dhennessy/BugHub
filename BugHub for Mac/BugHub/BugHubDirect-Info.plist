@@ -9,7 +9,7 @@
 	<key>CFBundleIconFile</key>
 	<string>Big-Icon@2x</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.rclconcepts.${PRODUCT_NAME:rfc1034identifier}.mac</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -28,7 +28,7 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>bughub</string>
-                <string>bhgithub</string>
+				<string>bhgithub</string>
 			</array>
 		</dict>
 	</array>
@@ -39,7 +39,7 @@
 	<key>LSMinimumSystemVersion</key>
 	<string>${MACOSX_DEPLOYMENT_TARGET}</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2014 Peer Assembly. All rights reserved.</string>
+	<string>Copyright © 2014-2015 Peer Assembly. All rights reserved.</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
