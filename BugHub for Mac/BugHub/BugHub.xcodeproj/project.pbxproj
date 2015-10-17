@@ -545,7 +545,7 @@
 		25C471B216B241610078395A /* LabelTableViewCellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LabelTableViewCellView.m; sourceTree = "<group>"; };
 		25C471B816B246760078395A /* DrawingHelp.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrawingHelp.h; sourceTree = "<group>"; };
 		25C471B916B246760078395A /* DrawingHelp.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DrawingHelp.m; sourceTree = "<group>"; };
-		25C5DF76168A87240001740A /* BugHub AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BugHub AppStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		25C5DF76168A87240001740A /* BugHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BugHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25C5DF7A168A87240001740A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		25C5DF7D168A87240001740A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		25C5DF7E168A87240001740A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -624,6 +624,7 @@
 		25EE89F616CE0BF100AAA75A /* FilterBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterBarButton.m; sourceTree = "<group>"; };
 		3A4C2D5C6A6D4C5180EB449B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A1E6B6E64EC4309D5038468 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		922A87C81BC312C000856267 /* BugHubDirect-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "BugHubDirect-Info.plist"; sourceTree = "<group>"; };
 		922B473D19A8B43A00411C2A /* WebLoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebLoginWindowController.h; sourceTree = "<group>"; };
 		922B473E19A8B43A00411C2A /* WebLoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebLoginWindowController.m; sourceTree = "<group>"; };
 		92468D211BC2D144005F5CE7 /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = Carthage/Build/Mac/AFNetworking.framework; sourceTree = "<group>"; };
@@ -631,8 +632,7 @@
 		92468D261BC2D150005F5CE7 /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = Carthage/Build/Mac/Mantle.framework; sourceTree = "<group>"; };
 		92468D281BC2D150005F5CE7 /* OctoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OctoKit.framework; path = Carthage/Build/Mac/OctoKit.framework; sourceTree = "<group>"; };
 		92468D291BC2D150005F5CE7 /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveCocoa.framework; path = Carthage/Build/Mac/ReactiveCocoa.framework; sourceTree = "<group>"; };
-		92B775D01BC301C10016AEC6 /* BugHub Direct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BugHub Direct.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92B775D11BC301C10016AEC6 /* BugHubDirect-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "BugHubDirect-Info.plist"; path = "/Users/denis/Projects/PeerAssembly/BugHub/BugHub for Mac/BugHub/BugHubDirect-Info.plist"; sourceTree = "<absolute>"; };
+		92B775D01BC301C10016AEC6 /* BugHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BugHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		92D4623B19BB2B9500512E8F /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
 		92D4623C19BB2B9500512E8F /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
 		92D4623D19BB2B9500512E8F /* LoginWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindowController.xib; sourceTree = "<group>"; };
@@ -916,8 +916,8 @@
 		25C5DF77168A87240001740A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				25C5DF76168A87240001740A /* BugHub AppStore.app */,
-				92B775D01BC301C10016AEC6 /* BugHub Direct.app */,
+				25C5DF76168A87240001740A /* BugHub.app */,
+				92B775D01BC301C10016AEC6 /* BugHub.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -983,7 +983,7 @@
 			isa = PBXGroup;
 			children = (
 				25C5DF82168A87240001740A /* BugHubAppStore-Info.plist */,
-				92B775D11BC301C10016AEC6 /* BugHubDirect-Info.plist */,
+				922A87C81BC312C000856267 /* BugHubDirect-Info.plist */,
 				25C5DF83168A87240001740A /* InfoPlist.strings */,
 				25C5DF86168A87240001740A /* main.m */,
 				25C5DF88168A87240001740A /* BugHub-Prefix.pch */,
@@ -1079,7 +1079,7 @@
 			);
 			name = "BugHub AppStore";
 			productName = BugHub;
-			productReference = 25C5DF76168A87240001740A /* BugHub AppStore.app */;
+			productReference = 25C5DF76168A87240001740A /* BugHub.app */;
 			productType = "com.apple.product-type.application";
 		};
 		92B775171BC301C10016AEC6 /* BugHub Direct */ = {
@@ -1099,7 +1099,7 @@
 			);
 			name = "BugHub Direct";
 			productName = BugHub;
-			productReference = 92B775D01BC301C10016AEC6 /* BugHub Direct.app */;
+			productReference = 92B775D01BC301C10016AEC6 /* BugHub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1653,10 +1653,15 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/BugHub/BugHubAppStore-Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"BUILD_APPSTORE=1",
+				);
+				INFOPLIST_FILE = "BugHub/BugHubAppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rclconcepts.BugHub.mac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BugHub;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1674,10 +1679,15 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/BugHub/BugHubAppStore-Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"BUILD_APPSTORE=1",
+				);
+				INFOPLIST_FILE = "BugHub/BugHubAppStore-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rclconcepts.BugHub.mac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BugHub;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1695,10 +1705,15 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/BugHubDirect-Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"BUILD_DIRECT=1",
+				);
+				INFOPLIST_FILE = "BugHub/BugHubDirect-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rclconcepts.BugHub.mac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BugHub;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1716,10 +1731,15 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BugHub/BugHub-Prefix.pch";
-				INFOPLIST_FILE = "$(SRCROOT)/BugHubDirect-Info.plist";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"COCOAPODS=1",
+					"BUILD_DIRECT=1",
+				);
+				INFOPLIST_FILE = "BugHub/BugHubDirect-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rclconcepts.BugHub.mac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = BugHub;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

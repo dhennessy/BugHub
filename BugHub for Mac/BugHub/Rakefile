@@ -1,0 +1,27 @@
+# Note that the following tools need to be installed and configured:
+#
+# CocoaPods - http://cocoapods.org - sudo gem install cocoapods
+# Middleman - https://middlemanapp.com - sudo gem install middleman
+# Pandoc - http://johnmacfarlane.net/pandoc/ - brew install pandoc
+# s3cmd - http://s3tools.org/s3cmd
+# Xctool - https://github.com/facebook/xctool - brew install xctool
+
+MVERS=`agvtool mvers -terse1`.strip
+VERS=`agvtool vers -terse`.strip
+
+namespace :package do
+  desc "Regenerate receipt-checking code for App Store"
+  task :receiptcheck do
+    sh %{ rm -f BugHub/ReceiptVerification.h }
+    sh %{ /Applications/Receigen.app/Contents/MacOS/Receigen --identifier com.rclconcepts.BugHub.mac --version #{MVERS} --os osx >BugHub/ReceiptVerification.h }
+  end
+  
+  desc "Package a Direct build"
+  task :direct do
+    sh %{ xctool -workspace BugHub.xcworkspace -scheme 'BugHub Direct' -configuration 'Release' archive -archivePath Build/BugHub }
+    sh %{ rm -rf Release/BugHub.app Release/*.zip }
+    sh %{ cp -r Build/BugHub.xcarchive/Products/Applications/BugHub.app Release }
+    sh %{ cd Release; ditto -ck --keepParent BugHub.app "BugHub-#{MVERS}.zip" }
+    puts "Created BugHub Direct #{MVERS} (#{VERS})"    
+  end
+end

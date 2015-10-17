@@ -31,6 +31,7 @@ typedef enum {
 
 @property(strong) BHRequestQueue *requestQueue;
 @property GHCurrentAPIStatus apiStatus;
+@property (nonatomic, assign) BOOL buildExpired;
 
 - (IBAction)login:(id)sender;
 - (IBAction)logout:(id)sender;

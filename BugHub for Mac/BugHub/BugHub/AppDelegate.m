@@ -19,6 +19,11 @@
 #import "INAppStoreWindow.h"
 #import <OctoKit/OCTClient.h>
 
+#if BUILD_DIRECT
+// IMPORTANT: Set this to 0 to disable expiration
+#define EXPIRE_DAYS     45
+#endif
+
 @class IdentifierWindowController;
 
 @interface AppDelegate ()
@@ -110,6 +115,22 @@
     
     [self checkAPIStatus];
     [NSTimer scheduledTimerWithTimeInterval:15 * 60 target:self selector:@selector(checkAPIStatus) userInfo:nil repeats:YES];
+    
+#if BUILD_DIRECT
+    [self checkBuildExpiry];
+    if (_buildExpired) {
+        NSAlert *alert = [NSAlert alertWithMessageText:NSLocalizedString(@"This test release of BugHub has expired. Please download a new test version.", nil)
+                                         defaultButton:NSLocalizedString(@"OK", nil)
+                                       alternateButton:nil
+                                           otherButton:nil
+                             informativeTextWithFormat:@""];
+        
+        //        [alert setShowsSuppressionButton:YES];
+        //        alert.showsHelp = YES;
+        [alert runModal];
+        [NSApp terminate:nil];
+    }
+#endif
 }
 
 - (void)applicationWillTerminate:(NSNotification *)notification
@@ -526,5 +547,26 @@
     }
     
 }
+
+#if BUILD_DIRECT
+- (void)checkBuildExpiry {
+#if EXPIRE_DAYS
+    NSString *buildDateString = @"" __DATE__;       // @"Dec 24 2014"
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    dateFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    dateFormatter.dateFormat = @"MMM dd yyyy";
+    NSDate *buildDate = [dateFormatter dateFromString:buildDateString];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *dateComps = [[NSDateComponents alloc] init];
+    dateComps.day = EXPIRE_DAYS;
+    NSDate *expiryDate = [gregorian dateByAddingComponents:dateComps toDate:buildDate options:0];
+    if ([[NSDate date] compare:expiryDate] > 0) {
+        _buildExpired = YES;
+    }
+    NSLog(@"Build Date: %@ -> %@, Expiry: %@", buildDateString, buildDate, expiryDate);
+    // TODO: It would be best to check if the new version is actually available
+#endif
+}
+#endif
 
 @end
