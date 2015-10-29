@@ -424,13 +424,13 @@ const NSInteger kErrorContext = 2;
     if ([[self.labelsField objectValue] count] != 0)
         labels = [self.labelsField objectValue];
     
-    NSDictionary *updates = @{
+    NSMutableDictionary *updates = [NSMutableDictionary dictionaryWithDictionary:@{
         @"title": [self.titleField stringValue],
         @"body": [self.bodyField string],
         @"milestone": milestone == nil ? [NSNull null] : @(milestone.number), // milestone number
-        @"labels": labels == nil ? [NSNull null] : labels, // label names array
+        @"labels": labels == nil ? @[] : labels, // label names array
         @"assignee": assigneeLogin == nil ? [NSNull null] : assigneeLogin // assignee login
-    };
+    }];
 
     [self setLoading:YES];
     
@@ -448,7 +448,7 @@ const NSInteger kErrorContext = 2;
 
                 if (statusCode < 200 || statusCode > 299)
                 {
-                    NSLog(@"Error with issue update: %@", self.issue);
+                    NSLog(@"Error with issue update: %@", [[NSString alloc] initWithData:aRequest.responseData encoding:NSUTF8StringEncoding]);
                     [self showUpdateError];
                     return;
                 }

@@ -50,6 +50,7 @@
 
     if (self)
     {
+        [OCTClient setUserAgent:@"BugHub"];
         [OCTClient setClientID:@"8e376e2335495e3a8e83" clientSecret:@"c2578cebd0ecc5efae69ed1f111e2d37e7b865a8"];
         _requestQueue = [[BHRequestQueue alloc] init];
         openWindowControllers = [NSMutableSet setWithCapacity:1];
@@ -136,6 +137,10 @@
 - (void)applicationWillTerminate:(NSNotification *)notification
 {
     [self removeAPIStatusNotifications];
+}
+
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host {
+    return YES;
 }
 
 - (void)didHitRateLimit:(NSNotification *)aNote

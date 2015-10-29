@@ -168,9 +168,11 @@ static BOOL avatarRequestIsRunning = NO;
         
         [self _createCacheIfNeeded];
         NSImage *newImage = [[NSImage alloc] initWithData:responseData];
-        [self willChangeValueForKey:@"avatar"];
-        [BHUserAvatarCache setObject:newImage forKey:self];
-        [self didChangeValueForKey:@"avatar"];
+        if (newImage) {
+            [self willChangeValueForKey:@"avatar"];
+            [BHUserAvatarCache setObject:newImage forKey:self];
+            [self didChangeValueForKey:@"avatar"];
+        }
     }];
 }
 

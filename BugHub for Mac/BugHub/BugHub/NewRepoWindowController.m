@@ -149,6 +149,9 @@
     [_request setCompletionBlock:^(GHAPIRequest *aRequest){
         NSInteger statusCode = [aRequest responseStatusCode];
         NSData *responseData = [aRequest responseData];
+        if (responseData == nil) {
+            return;
+        }
         NSError *error = nil;
         NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
 
@@ -187,6 +190,9 @@
     [_orgLoadRequest setCompletionBlock:^(GHAPIRequest *aRequest){
         NSInteger statusCode = [aRequest responseStatusCode];
         NSData *responseData = [aRequest responseData];
+        if (responseData == nil) {
+            return;
+        }
         NSError *error = nil;
         NSArray *responseArray = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
         

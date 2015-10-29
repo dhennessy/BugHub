@@ -20,6 +20,7 @@ namespace :package do
   task :direct do
     sh %{ xctool -workspace BugHub.xcworkspace -scheme 'BugHub Direct' -configuration 'Release' archive -archivePath Build/BugHub }
     sh %{ rm -rf Release/BugHub.app Release/*.zip }
+    sh %{ mkdir -p Release }
     sh %{ cp -r Build/BugHub.xcarchive/Products/Applications/BugHub.app Release }
     sh %{ cd Release; ditto -ck --keepParent BugHub.app "BugHub-#{MVERS}.zip" }
     puts "Created BugHub Direct #{MVERS} (#{VERS})"    

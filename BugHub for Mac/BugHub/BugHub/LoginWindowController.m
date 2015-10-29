@@ -26,6 +26,7 @@
 @property (weak) IBOutlet NSSecureTextField *passwordTextField;
 @property (weak) IBOutlet NSTextField *errorLabel;
 @property (weak) IBOutlet NSButton *loginButton;
+@property (weak) IBOutlet NSTextField *passwordLabel;
 
 @property (strong) IBOutlet NSPanel *oneTimePasswordSheet;
 @property (weak) IBOutlet NSTextField *code0TextField;
@@ -66,44 +67,21 @@
     NSString *password = _passwordTextField.stringValue;
     
     NSURL *serverURL = nil;
+    
     if (_service.selectedCell == _githubEnterpriseService) {
         serverURL = [NSURL URLWithString:_urlTextField.stringValue];
-        [GHAPIRequest setAPIPrefix:_urlTextField.stringValue];
-        loginRequest = [GHAPIRequest requestForAuth:username password:password];
-        __weak LoginWindowController *weakSelf = self;
-        [loginRequest setCompletionBlock:^(GHAPIRequest *aRequest) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (aRequest.status == GHAPIRequestStatusComplete) {
-                    NSInteger statusCode = [aRequest responseStatusCode];
-                    if (statusCode < 200 || statusCode > 299) {
-                        weakSelf.errorLabel.stringValue = @"Login failed";
-                        [weakSelf enableUserInteraction:YES];
-                        return;
-                    }
-
-                    NSData *responseData = [aRequest responseData];
-                    NSError *error = nil;
-                    NSDictionary *responseDict = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&error];
-                    NSString *login = [responseDict objectForKey:@"login"];
-                    [[NSUserDefaults standardUserDefaults] setObject:weakSelf.urlTextField.stringValue forKey:@"APIPrefix"];
-                    [GHAPIRequest setAPIPrefix:[[NSUserDefaults standardUserDefaults] stringForKey:@"APIPrefix"]];
-                    [GHAPIRequest setUsesOAuth:NO];
-                    [GHAPIRequest setClassAuthenticatedUser:login password:password];
-                    weakSelf.passwordTextField.stringValue = @"";
-                    [weakSelf close];
-                    [(AppDelegate *)[NSApp delegate] openRepoChooser:login];
-                } else {
-                    NSAlert *alert = [NSAlert alertWithMessageText:@"Unable to login" defaultButton:@"OK" alternateButton:nil otherButton:nil informativeTextWithFormat:@"Unable to login at this time. Try checking your internet connection."];
-                    weakSelf.errorLabel.stringValue = @"Login failed";
-                    [weakSelf enableUserInteraction:YES];
-                    [alert runModal];
-                }
-            });
-        }];
-
-        [loginRequest sendRequest];
-    } else {
         OCTUser *user = [OCTUser userWithRawLogin:username server:[OCTServer serverWithBaseURL:serverURL]];
+        OCTClient *authenticatedClient = [OCTClient authenticatedClientWithUser:user token:password];
+        [[NSUserDefaults standardUserDefaults] setObject:_urlTextField.stringValue forKey:@"APIPrefix"];
+        [GHAPIRequest setAPIPrefix:[[NSUserDefaults standardUserDefaults] stringForKey:@"APIPrefix"]];
+        [GHAPIRequest setUsesOAuth:YES];
+        [GHAPIRequest setClassAuthenticatedUser:authenticatedClient.user.rawLogin token:authenticatedClient.token];
+        _passwordTextField.stringValue = @"";
+        [self close];
+        [GHAPIRequest initializeClassWithKeychain];
+        [(AppDelegate *)[NSApp delegate] openRepoChooser:authenticatedClient.user.rawLogin];
+    } else {
+        OCTUser *user = [OCTUser userWithRawLogin:username server:[OCTServer dotComServer]];
         RACSignal *request = [OCTClient signInAsUser:user
                                             password:password
                                      oneTimePassword:oneTimePassword
@@ -116,11 +94,7 @@
                 if (_oneTimePasswordVisible) {
                     [self hideOneTimePasswordSheet];
                 }
-                if (_service.selectedCell == _githubComService) {
-                    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"APIPrefix"];
-                } else {
-                    [[NSUserDefaults standardUserDefaults] setObject:_urlTextField.stringValue forKey:@"APIPrefix"];
-                }
+                [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"APIPrefix"];
                 [GHAPIRequest setAPIPrefix:[[NSUserDefaults standardUserDefaults] stringForKey:@"APIPrefix"]];
                 [GHAPIRequest setUsesOAuth:YES];
                 [GHAPIRequest setClassAuthenticatedUser:authenticatedClient.user.rawLogin token:authenticatedClient.token];
@@ -131,6 +105,9 @@
         } error:^(NSError *error) {
             dispatch_async(dispatch_get_main_queue(), ^{
 //                NSLog(@"Login error: %@", error.userInfo);
+                if (_oneTimePasswordVisible) {
+                    [self hideOneTimePasswordSheet];
+                }
                 if ([error.domain isEqual:OCTClientErrorDomain] && error.code == OCTClientErrorTwoFactorAuthenticationOneTimePasswordRequired) {
                     if (_oneTimePasswordVisible) {
                         _oneTimeErrorLabel.stringValue = NSLocalizedString(@"Incorrect auth code", nil);
@@ -161,11 +138,13 @@
         [_usernameTextField becomeFirstResponder];
         _urlTextField.enabled = NO;
         _urlTextField.stringValue = @"https://github.com";
+        _passwordLabel.stringValue = NSLocalizedString(@"Password:", @"Prompt for password");
     } else {
         _urlLabel.enabled = YES;
         _urlTextField.enabled = YES;
         _urlTextField.stringValue = _oldEnterpriseURL;
         [_urlTextField becomeFirstResponder];
+        _passwordLabel.stringValue = NSLocalizedString(@"Token:", @"Prompt for token");
     }
     [self configureLoginButton];
 }
