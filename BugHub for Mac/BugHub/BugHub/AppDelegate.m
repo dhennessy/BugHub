@@ -106,9 +106,13 @@
             }
         }
         
-        // If no repo windows were restored, show the repo picker window
-        if (!hasOpenRepoWindow)
-            [self openRepoChooser:nil];
+        if (!hasOpenRepoWindow) {
+            NSString* lastOpenedRepo = [[NSUserDefaults standardUserDefaults] stringForKey:@"lastOpenedRepository"];
+            // If no repo windows were restored, show the repo picker window
+            if(lastOpenedRepo) [self openRepoWindow:lastOpenedRepo];
+            else [self openRepoChooser:nil];
+        }
+        
     }
 
     [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"e03657115605ec034e073870b13120b5"];

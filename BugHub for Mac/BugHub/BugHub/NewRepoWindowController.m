@@ -54,9 +54,12 @@
 
     if (!authenticatedUser)
         return;
-
-    [self.identifierField setStringValue:[NSString stringWithFormat:@"%@/", authenticatedUser]];
-    [self loadRepos:authenticatedUser];
+    
+    NSString* lastUsedUsername = [self usernameFromRepoIdentifier:[self lastOpenedRepository]];
+    NSString* userToBeUsed = lastUsedUsername ? lastUsedUsername : authenticatedUser;
+    
+    [self.identifierField setStringValue:[NSString stringWithFormat:@"%@/", userToBeUsed]];
+    [self loadRepos:userToBeUsed];
 }
 
 - (void)dealloc
@@ -225,6 +228,16 @@
     
 }
 
+-(NSString*)usernameFromRepoIdentifier:(NSString*)repoIdentifier
+{
+    NSInteger indexOfSlash = [repoIdentifier rangeOfString:@"/"].location;
+    
+    if (indexOfSlash == NSNotFound)
+        return nil;
+    
+    return [repoIdentifier substringToIndex:indexOfSlash];
+}
+
 - (void)controlTextDidChange:(NSNotification *)obj
 {
     if ([obj object] != self.identifierField)
@@ -233,12 +246,12 @@
     NSString *text = [self.identifierField stringValue];
     BOOL isValidID = [BHRepository isValidIdentifier:text];
     
-    NSInteger indexOfSlash = [text rangeOfString:@"/"].location;
+    NSString* username = [self usernameFromRepoIdentifier:text];
     
-    if (indexOfSlash == NSNotFound)
+    if (!username)
         return;
     
-    [self loadRepos:[text substringToIndex:indexOfSlash]];
+    [self loadRepos:username];
     [self filterRepos];
     
     [self.openButton setEnabled:isValidID];
@@ -254,6 +267,17 @@
     [(AppDelegate *)[NSApp delegate] windowControllerDidClose:self];
 }
 
+-(NSString*)lastOpenedRepository
+{
+    return [[NSUserDefaults standardUserDefaults] stringForKey:@"lastOpenedRepository"];
+}
+
+-(BOOL)rememberLastOpenedRepository:(NSString*)repositoryName
+{
+    [[NSUserDefaults standardUserDefaults]setObject:repositoryName forKey:@"lastOpenedRepository"];
+    return [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 - (IBAction)openRepo:(id)sender
 {
     if (sender == self.repoListView)
@@ -263,7 +287,9 @@
         if (clickedRow == NSNotFound)
             return;
 
-        [(AppDelegate *)[NSApp delegate] openRepoWindow:[[_filteredRepos objectAtIndex:clickedRow] identifier]];
+        NSString* repoIdentifier = [[_filteredRepos objectAtIndex:clickedRow] identifier];
+        [(AppDelegate *)[NSApp delegate] openRepoWindow:repoIdentifier];
+        [self rememberLastOpenedRepository:repoIdentifier];
         [self closeWindow:nil];
         return;
     }
@@ -275,6 +301,7 @@
         return;
 
     [(AppDelegate *)[NSApp delegate] openRepoWindow:text];
+    [self rememberLastOpenedRepository:text];
     [self closeWindow:nil];
 }
 
